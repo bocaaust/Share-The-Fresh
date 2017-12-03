@@ -66,7 +66,7 @@ Tweet</a>
 						</div>
 							
 						</div>
-						<button id="submit" onClick="calculate()" style="width: 100%; margin: 8px;">Calculate Meal Plan</button>
+						<button id="submit" style="width: 100%; margin: 8px;">Calculate Meal Plan</button>
 					</div>
 					<div class="container-fluid" id="secondary"></div>
 					<div class="container-fluid" id="third"></div>
@@ -91,6 +91,7 @@ Tweet</a>
 			run(document.getElementById('imgurl').value)
 		}
 		document.getElementById("mainButton").addEventListener("click",firstButton);
+		document.getElementById("submit").addEventListener("click",calculate);
 		document.getElementById('Parameters').style.visibility = "hidden";
 		document.getElementById('shelters').style.visibility = "hidden";
 		var d = new Date();

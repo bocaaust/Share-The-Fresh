@@ -1,3 +1,5 @@
+var useless = ['vegetable','sweet','sour','spicy','barbecue','ailment','micronutrient','condiment','pasture','carbohydrate','protein','salt','tenderloin','sirloin','dairy product','meat product','hay','straw','herb','jug','kettle','bottle','platter','cinnamon','grub','grass','feast']
+
 var food = [];
 food['bacon'] = [184,12,17];
 food['roast beef'] = [130,8,14];

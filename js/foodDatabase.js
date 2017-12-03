@@ -1,3 +1,5 @@
+var useless = ['vegetable','sweet','sour','spicy','barbecue','ailment','micronutrient','condiment','pasture','carbohydrate','protein','salt','tenderloin','sirloin','dairy product','meat product','hay','straw','herb','jug','kettle','bottle','platter','cinnamon','grub','grass','feast','goody']
+
 var food = [];
 food['bacon'] = [184,12,17];
 food['roast beef'] = [130,8,14];
@@ -39,3 +41,16 @@ food['olive']+ [167,10,0];
 food['red pepper']+ [31,0,1];
 food['dough']+ [90,2,3];
 food['spinach']+ [23,0,3];
+food['banana']+[89,0,1];
+food['cabbage']+[25,0,1];
+food['pineapple']+[73,0,3];
+food['cauliflower']+[25,0,2];
+food['asparagus']+[20,0,2];
+food['legume']+[50,0,0];
+food['courgette']+[18,0,0];
+food['peanut butter']+[667,53,13];
+food['chocolate']+[585,30,6];
+food['yogurt']+[113,9,5];
+food['cereal']+[387,2,19];
+food['muesli']+[340,5,10];
+food['peanut']+[585,50,24];

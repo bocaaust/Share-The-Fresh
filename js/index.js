@@ -266,6 +266,7 @@ function secondButton(){
 	addTag(document.getElementById('imgurl').value)
 }
 function updateFields(){
+	document.getElementById('Parameters').style.visibility = "visible";
 	var button = document.getElementById("mainButton");
 	var field = document.getElementById("imgurl");
 	field.placeholder = "Food Name";
@@ -370,9 +371,19 @@ function hasTag(name){
 	return true;
 }
 
+function isUseless(name){
+	for (var i = 0; i < useless.length; i++) {
+		if (useless[i] === name){
+			return false;
+		}
+	}
+	
+	return true;
+}
+
 function addTag(name) {
 	document.getElementById('imgurl').value = "";
-	if (name != "" && hasTag(name)){
+	if (name != "" && hasTag(name) && isUseless(name)){
 	var pinboard = document.getElementById('pinboard');
 	var item = document.createElement("DIV");
 	item.id=name;

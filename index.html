@@ -28,6 +28,7 @@
   			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2" style="margin-top: 10vh; background-color: whitesmoke; border: 8px solid; border-color: darkgray;">
 				<h1 style="font-family: 'Open Sans Condensed', sans-serif;">Share the Fresh</h1>
 				<h4>An AI Based Nutrition and Charity Project</h4>
+				<div class = "col-xs-2 col-xs-offset1"><img src="img/tipIcon.png" width="100%" class="img-responsive" alt="Tip Icon"></div><div class = "col-xs-8 dailyTip" id="dailyTip"></div>
 			</div>
 			</div>
 			<div class="row">
@@ -39,11 +40,35 @@
 					<div class="container-fluid" id="content"></div>
 					<div class="container-fluid text-center" id="pinboard">
 					</div>
+					<div class="container-fluid" id="Parameters">
+					<div class="col-xs-4">
+					<div class="form-group">
+						<label for="dailyCalories">Daily Calories:</label>
+					<input type="text" id="dailyCalories" placeholder="Calories">
+						</div>
+						</div>
+						<div class="col-xs-4">
+					<div class="form-group">
+						<label for="dailyCalories">Daily Protein:</label>
+					<input type="text" id="dailyProtein" placeholder="Protein">
+						</div>
+						</div>
+						<div class="col-xs-4">
+					<div class="form-group">
+						<label for="dailyCalories">Daily Fat:</label>
+					<input type="text" id="dailyFat" placeholder="Fat">
+						</div>
+							
+						</div>
+						<button id="submit" onClick="calculate()" style="width: 100%; margin: 8px;">Calculate Meal Plan</button>
+					</div>
+					<div class="container-fluid" id="secondary"></div>
 				</div>
 			</div>
 
 	  </div>
 	  <script src="js/foodDatabase.js"></script>
+	  <script src ="js/nutritionTips.js"></script>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 	<script src="js/jquery-1.11.3.min.js"></script>
 
@@ -54,6 +79,10 @@
 			run(document.getElementById('imgurl').value)
 		}
 		document.getElementById("mainButton").addEventListener("click",firstButton);
+		document.getElementById('Parameters').style.visibility = "hidden";
+		var d = new Date();
+		var tipText = document.createTextNode("Tip of the Day: "+ nutritionTips[d.getDate()]);
+		document.getElementById('dailyTip').appendChild(tipText);
 	  </script>
   </body>
 </html>

@@ -703,13 +703,43 @@ function calculate(){
 }
 	var excess = [];
 	excess.fill(true,0,pins.length);
+	var mealTitle = document.createElement("H3");
+	var mealTitleText = document.createTextNode("Here is a list of your potential meals");
+	var excessTitle = document.createElement("H3");
+	var excessTitleText = document.createTextNode("Here is a list of excess items purchased you can doante")
+	excessTitle.appendChild(excessTitleText);
+	document.getElementById('third').appendChild(excessTitle);
+	mealTitle.appendChild(mealTitleText);
+	document.getElementById('secondary').appendChild(mealTitle);
 	for(var u=0; u < meals.length; u++){
+		var mealString = (u+1)+". ";
+		mealString+=meals[u][0];
+		for (var c =1; c< meals[u].length; c++){
+			mealString+=", " + meals[u][c];
+		}
+		var mealItem = document.createElement("H4");
+		var mealItemText = document.createTextNode(mealString);
+		mealItem.appendChild(mealItemText);
+		document.getElementById('secondary').appendChild(mealItem);
 		for (var g = 0; g < pins.length; g++){
 				if (meals[u].includes(pins[g])){
 					excess[g] = false;
 				}
 			}
 	}
+	
+	for(var r = 0; r< excess.length; r++){
+		if (excess[r]){
+			var excessItem = document.createElement("DIV");
+			excessItem.className+="col-xs-12 col-sm-3 animated fadeIn tagItem";
+			var excessItemText = document.createTextNode(pins[r]);
+			excessItem.appendChild(excessItemText);
+			document.getElementById('third').appendChild(excessItem);
+			
+		}
+	}
+	
+	document.getElementById('shelters').style.visibility="visible";
 	
 	
 }

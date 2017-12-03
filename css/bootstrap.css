@@ -6754,7 +6754,7 @@ button.close {
     display: none !important;
   }
 }
-
+@media (min-width: 768px){
 .tagItem {
 	background-color: black;
 	border-radius: 16px;
@@ -6765,6 +6765,25 @@ button.close {
 	margin-top: 20px;
 	opacity: 0.85;
 	border: solid lightgrey 2px;
+	}
+	
+	.dailyTip {
+		margin-top: 3vw;
+	}
+
+}
+@media (max-width: 768px){
+	.dailyTip {}
+	.tagItem {
+	background-color: black;
+	border-radius: 16px;
+	color: whitesmoke;
+	text-decoration: none;
+	padding: 8px;
+	margin-top: 20px;
+	opacity: 0.85;
+	border: solid lightgrey 2px;
+	}
 }
 .tagItem::hover {
 	text-decoration: none;

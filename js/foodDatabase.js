@@ -1,5 +1,7 @@
 var useless = ['vegetable','sweet','sour','spicy','barbecue','ailment','micronutrient','condiment','pasture','carbohydrate','protein','salt','tenderloin','sirloin','dairy product','meat product','hay','straw','herb','jug','kettle','bottle','platter','cinnamon','grub','grass','feast','goody']
-
+//Here is the format 
+//food['apple'] = [(calories),(fat),(protein)]
+//food['apple'] = [15,30,20]
 var food = [];
 food['bacon'] = [184,12,17];
 food['roast beef'] = [130,8,14];
@@ -10,9 +12,6 @@ food['almond milk'] = [30,2.5,1];
 food['tuna'] = [383,19,33];
 food['steak'] = [332,30,14];
 food['cheese'] = [532,44,33];
-//Here is the format 
-//food['apple'] = [(calories),(fat),(protein)]
-//food['apple'] = [15,30,20]
 food['tomato']+ [18,0,1];
 food['onion']+ [40,0,1];
 food['carrot']+ [41,0,1];

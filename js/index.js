@@ -388,11 +388,11 @@ function addTag(name) {
 	var item = document.createElement("DIV");
 	item.id=name;
 	item.className+= "tagItem col-xs-12 col-sm-3 animated fadeIn";
-	var food = document.createElement("DIV");
-	food.className+="foodItem";
+	var food2 = document.createElement("DIV");
+	food2.className+="foodItem";
 	var foodName = document.createTextNode(name);
-	food.appendChild(foodName);
-	item.appendChild(food);
+	food2.appendChild(foodName);
+	item.appendChild(food2);
 	var button = document.createElement("BUTTON");
 	button.className+="btn button";
 	button.onclick = function() {remove(name);};
@@ -671,12 +671,13 @@ function collectNutrition(pins) {
 }
 
 function calculate(){
+	console.log("starting calculation");
 	var pins = collectPins();
 	var facts = collectNutrition(pins);
 	var meals = [];
-	var targetCalories = document.getElementById('dailyCalories').value/3;
-	var targetProteint = document.getElementById('dailyProtein').value/3;
-	var targetFat = document.getElementById('dailyFat').value/3;
+	var targetCalories = document.getElementById('dailyCalories').value;
+	var targetProteint = document.getElementById('dailyProtein').value;
+	var targetFat = document.getElementById('dailyFat').value;
 	var temp = [];
 	var calorieTotal = 0;
 	var fatTotal = 0;
@@ -694,15 +695,18 @@ function calculate(){
 			calorieTotal+=facts[j][0];
 			fatTotal+=facts[j][1];
 			proteinTotal+=facts[j][1];
-            temp.push(food[j]);
+            temp.push(pins[j]);
         }
     }
-    if (calorieTotal >= targetCalories*accuracy && calorieTotal <= targetCalories && fatTotal >= targetFat*accuracy && fatTotal <= targetFat && proteinTotal >= proteinTotal*accuracy && proteinTotal <= proteinTotal) {
+		console.log(temp);
+    if (calorieTotal >= targetCalories*accuracy && calorieTotal <= targetCalories && fatTotal >= targetFat*accuracy && fatTotal <= targetFat && targetProteint >= proteinTotal*accuracy && targetProteint <= proteinTotal) {
         meals.push(temp);
     }
 }
 	var excess = [];
-	excess.fill(true,0,pins.length);
+	for(var l = 0; l < pins.length; l++){
+		excess[l] = true;
+	}
 	var mealTitle = document.createElement("H3");
 	var mealTitleText = document.createTextNode("Here is a list of your potential meals");
 	var excessTitle = document.createElement("H3");
@@ -723,6 +727,7 @@ function calculate(){
 		document.getElementById('secondary').appendChild(mealItem);
 		for (var g = 0; g < pins.length; g++){
 				if (meals[u].includes(pins[g])){
+					console.log(pins[g]);
 					excess[g] = false;
 				}
 			}

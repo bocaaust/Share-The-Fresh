@@ -262,13 +262,17 @@ function parseResponse(resp) {
 	//updateTopDestination(classes);
   //return classes;
 }
-
+function secondButton(){
+	addTag(document.getElementById('imgurl').value)
+}
 function updateFields(){
 	var button = document.getElementById("mainButton");
 	var field = document.getElementById("imgurl");
 	field.placeholder = "Food Name";
 	field.value = "";
-	button.onclick = addTag(document.getElementById('imgurl').value);
+	button.removeEventListener("click",firstButton);
+	button.addEventListener("click",secondButton);
+	
 	button.removeChild(button.lastChild);
 	var tip = document.createTextNode("Add Food");
 	button.appendChild(tip);
@@ -355,8 +359,20 @@ function topTag(industry){
 	content.appendChild(title);
 }
 
+function hasTag(name){
+	var pinboard = document.getElementById('pinboard');
+	var children = pinboard.children;
+	for (var i = 0; i < children.length; i++) {
+		if (children[i].id === name){
+			return false;
+		}
+	}
+	return true;
+}
+
 function addTag(name) {
-	if (name != ""){
+	document.getElementById('imgurl').value = "";
+	if (name != "" && hasTag(name)){
 	var pinboard = document.getElementById('pinboard');
 	var item = document.createElement("DIV");
 	item.id=name;

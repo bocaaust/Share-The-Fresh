@@ -35,7 +35,7 @@
 				<div class="col-xs-10 col-xs-offset-1" style="padding-bottom: 12vh;">
 					<p id ="mainText">Enter a link to the photo of your groceries</p>
 					 <input type="text" id="imgurl"  placeholder="Image URL" style="color:black; border-radius: 5px; width: 30vw;"/>
-    <button onclick="run(document.getElementById('imgurl').value)" style="color:black; margin-top: 2px;" class="btn" id="mainButton">GET STARTED</button>
+    <button style="color:black; margin-top: 2px;" class="btn" id="mainButton">GET STARTED</button>
 					<div class="container-fluid" id="content"></div>
 					<div class="container-fluid text-center" id="pinboard">
 					</div>
@@ -48,5 +48,11 @@
 
 	<!-- Include all compiled plugins (below), or include individual files as needed --> 
 	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+		function firstButton(){
+			run(document.getElementById('imgurl').value)
+		}
+		document.getElementById("mainButton").addEventListener("click",firstButton);
+	  </script>
   </body>
 </html>

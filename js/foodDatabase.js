@@ -60,3 +60,7 @@ food['cake']+[389,20,9];
 food['cookie']+[444,20,4];
 food['spices']+[253,5,10];
 food['meat']+[113,6,18];
+food['juice']+[45,0,1];
+food['cider']+[0,0,0];
+food['butter']+[717,81,1];
+food['turkey']+[104,2,17];

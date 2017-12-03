@@ -646,3 +646,100 @@ function submitForm(){
     });
   return false;
 }
+
+function collectPins(){
+	var p = document.getElementById('pinboard');
+	var d = [];
+	var children = p.children;
+	for (var i = 0; i < children.length; i++) {
+		d.push(children[i].id);
+	}
+	return d;
+}
+
+function collectNutrition(pins) {
+	var output = [];
+	for (var i=0; i < pins.length; i++){
+		if(pins[i] in food){
+		output.push(food[pins[i]]);
+		}else{
+			remove(pins[i]);
+			pins.splice(i,1);
+		}
+	}
+	return output;
+}
+
+function calculate(){
+	var pins = collectPins();
+	var facts = collectNutrition(pins);
+	var meals = [];
+	var targetCalories = document.getElementById('dailyCalories').value/3;
+	var targetProteint = document.getElementById('dailyProtein').value/3;
+	var targetFat = document.getElementById('dailyFat').value/3;
+	var temp = [];
+	var calorieTotal = 0;
+	var fatTotal = 0;
+	var proteinTotal = 0;
+	var accuracy = 0.65;
+	var letLen = Math.pow(2, pins.length);
+	for (var i = 0; i < letLen ; i++){
+    temp= [];
+	calorieTotal = 0;
+	proteinTotal = 0;
+		fatTotal = 0;
+	
+    for (var j=0;j<pins.length;j++) {
+        if ((i & Math.pow(2,j))){ 
+			calorieTotal+=facts[j][0];
+			fatTotal+=facts[j][1];
+			proteinTotal+=facts[j][1];
+            temp.push(food[j]);
+        }
+    }
+    if (calorieTotal >= targetCalories*accuracy && calorieTotal <= targetCalories && fatTotal >= targetFat*accuracy && fatTotal <= targetFat && proteinTotal >= proteinTotal*accuracy && proteinTotal <= proteinTotal) {
+        meals.push(temp);
+    }
+}
+	var excess = [];
+	excess.fill(true,0,pins.length);
+	var mealTitle = document.createElement("H3");
+	var mealTitleText = document.createTextNode("Here is a list of your potential meals");
+	var excessTitle = document.createElement("H3");
+	var excessTitleText = document.createTextNode("Here is a list of excess items purchased you can doante")
+	excessTitle.appendChild(excessTitleText);
+	document.getElementById('third').appendChild(excessTitle);
+	mealTitle.appendChild(mealTitleText);
+	document.getElementById('secondary').appendChild(mealTitle);
+	for(var u=0; u < meals.length; u++){
+		var mealString = (u+1)+". ";
+		mealString+=meals[u][0];
+		for (var c =1; c< meals[u].length; c++){
+			mealString+=", " + meals[u][c];
+		}
+		var mealItem = document.createElement("H4");
+		var mealItemText = document.createTextNode(mealString);
+		mealItem.appendChild(mealItemText);
+		document.getElementById('secondary').appendChild(mealItem);
+		for (var g = 0; g < pins.length; g++){
+				if (meals[u].includes(pins[g])){
+					excess[g] = false;
+				}
+			}
+	}
+	
+	for(var r = 0; r< excess.length; r++){
+		if (excess[r]){
+			var excessItem = document.createElement("DIV");
+			excessItem.className+="col-xs-12 col-sm-3 animated fadeIn tagItem";
+			var excessItemText = document.createTextNode(pins[r]);
+			excessItem.appendChild(excessItemText);
+			document.getElementById('third').appendChild(excessItem);
+			
+		}
+	}
+	
+	document.getElementById('shelters').style.visibility="visible";
+	
+	
+}

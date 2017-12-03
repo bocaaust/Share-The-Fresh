@@ -69,6 +69,12 @@ Tweet</a>
 						<button id="submit" onClick="calculate()" style="width: 100%; margin: 8px;">Calculate Meal Plan</button>
 					</div>
 					<div class="container-fluid" id="secondary"></div>
+					<div class="container-fluid" id="third"></div>
+					<div class="container-fluid" id="shelters">
+						<h2 class="text-center"> Connect to Local Food Banks to Donate Excess Food</h2>
+      
+<iframe width="66.66666667%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=food%20pantry&key=AIzaSyA9EIWyEjrb2HzP1ljo077WmBRG8FhyhCc" allowfullscreen></iframe>
+					</div>
 				</div>
 			</div>
 
@@ -86,6 +92,7 @@ Tweet</a>
 		}
 		document.getElementById("mainButton").addEventListener("click",firstButton);
 		document.getElementById('Parameters').style.visibility = "hidden";
+		document.getElementById('shelters').style.visibility = "hidden";
 		var d = new Date();
 		var tipText = document.createTextNode("Tip of the Day: "+ nutritionTips[d.getDate()]);
 		document.getElementById('dailyTip').appendChild(tipText);

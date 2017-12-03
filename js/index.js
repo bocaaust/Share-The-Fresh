@@ -736,7 +736,7 @@ function calculate(){
 	for(var r = 0; r< excess.length; r++){
 		if (excess[r]){
 			var excessItem = document.createElement("DIV");
-			excessItem.className+="col-xs-12 col-sm-3 animated fadeIn tagItem";
+			excessItem.className+="col-xs-12 col-sm-3 animated fadeIn tagItem text-center";
 			var excessItemText = document.createTextNode(pins[r]);
 			excessItem.appendChild(excessItemText);
 			document.getElementById('third').appendChild(excessItem);

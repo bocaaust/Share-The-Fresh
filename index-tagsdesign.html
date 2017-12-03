@@ -22,7 +22,7 @@
   <script type="text/javascript" src="js/keys.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
   </head>
-  <body style="background-image: url(img/bg.jpg); background-size: cover; font-family: 'Raleway', sans-serif; color: #363636;overflow-x: hidden;background-repeat: no-repeat; background-position: center center; background-attachment: fixed;">
+  <body style="background-image: url(img/bg.png); background-size: cover; font-family: 'Raleway', sans-serif; color: #363636;overflow-x: hidden;">
  	
   		<div class="row" style="margin-bottom: 10vh;">
   			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2" style="margin-top: 10vh; background-color: whitesmoke; border: 8px solid; border-color: darkgray;">
@@ -31,14 +31,15 @@
 			</div>
 			</div>
 			<div class="row">
-			<div class="col-xs-10 col-xs-offset-1" style="background-image: url(img/white.jpg); background-size:cover; border: solid 3px darkgreen; border-radius: 16px; padding: 12px;opacity: 0.9; margin-bottom: 5vh;">
-				<div class="col-xs-10 col-xs-offset-1" style="padding-bottom: 12vh;">
-					<p id ="mainText">Enter a link to the photo of your groceries</p>
-					 <input type="text" id="imgurl"  placeholder="Image URL" style="color:black; border-radius: 5px; width: 30vw;"/>
-    <button onclick="run(document.getElementById('imgurl').value)" style="color:black; margin-top: 2px;" class="btn" id="mainButton">GET STARTED</button>
-					<div class="container-fluid" id="content"></div>
-					<div class="container-fluid text-center" id="pinboard">
-					</div>
+			<div class="col-xs-10 col-xs-offset-1">
+				<div class="container-fluid text-center">
+					<div class="tagItem col-xs-2"><div class="foodItem">Banana </div><a class="button" style="">X</a></div>
+					<div class="tagItem col-xs-2">Bread <a class="button" style="background:white;color: black; padding: 3px; margin: 2px;">Unpin</a></div>
+					<div class="tagItem col-xs-2">Eggs <a class="button" style="background:white;color: black; padding: 3px; margin: 2px;">Unpin</a></div>
+					<div class="tagItem col-xs-2">Milk <a class="button" style="background:white;color: black; padding: 3px; margin: 2px;">Unpin</a></div>
+					<div class="tagItem col-xs-2">Cheese <a class="button" style="background:white;color: black; padding: 3px; margin: 2px;">Unpin</a></div>
+					<div class="tagItem col-xs-2">Bacon <a class="button" style="background:white;color: black; padding: 3px; margin: 2px;">Unpin</a></div>
+					<div class="tagItem col-xs-2">Apple <a class="button" style="background:white;color: black; padding: 3px; margin: 2px;">Unpin</a></div>
 				</div>
 			</div>
 

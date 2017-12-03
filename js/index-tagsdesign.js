@@ -232,7 +232,7 @@ function altParse(){
 
 function parseResponse(resp) {
 	//document.getElementById('third').hidden = false;
-	//localStorage.setItem('data',JSON.stringify(resp));
+	localStorage.setItem('data',JSON.stringify(resp));
   var tags = [];
   if (resp.status.code === 10000) {
     var results = resp.outputs;
@@ -244,40 +244,18 @@ function parseResponse(resp) {
 	
 	//var pins = JSON.parse(localStorage.getItem('pins'));
 	//var classes = [];
-	//console.log(tags[0].name);
-	//topTag(tags[0].name);
-	pins = [];
+	console.log(tags[0].name);
+	topTag(tags[0].name);
 	for(i=0;i<tags.length;i++){
 		//console.log(JSON.stringify(tags));
-		//console.log(tags[i].value);
-		//addNode('img/' + tags[i].name + '.png',tags[i].value);
-		addTag(tags[i].name);
-		pins.push(tags[i].name);
-		
+		console.log(tags[i].value);
+		addNode('img/' + tags[i].name + '.png',tags[i].value);
 	}
-	updateFields();
 	//pins[1][pins[1].length] = classes;
-	localStorage.setItem('pins',JSON.stringify(pins));
+	//localStorage.setItem('pins',JSON.stringify(pins));
 	//addNode(pins[0][pins[0].length - 1], classes);
 	//updateTopDestination(classes);
   //return classes;
-}
-
-function updateFields(){
-	var button = document.getElementById("mainButton");
-	var field = document.getElementById("imgurl");
-	field.placeholder = "Food Name";
-	field.value = "";
-	button.onclick = addTag(document.getElementById('imgurl').value);
-	button.removeChild(button.lastChild);
-	var tip = document.createTextNode("Add Food");
-	button.appendChild(tip);
-	
-	var hint = document.getElementById("mainText");
-	hint.removeChild(hint.lastChild);
-	var hintText = document.createTextNode("Missing a Food? Enter it Below");
-	hint.appendChild(hintText);
-		
 }
 
 function updateTopDestination(tags){
@@ -334,12 +312,11 @@ function updateLogo(imgurl){
 	var content = document.getElementById('content');
 	var item = document.createElement("DIV");
 	item.id = 'box';
-	item.className += "animated fadeIn first col-xs-12 col-sm-6 col-xs-offset-0 col-sm-offset-3";
-	//item.style.margin = "0px";
+	item.className += "animated fadeIn first col-xs-12 col-sm-10";
+	item.style.margin = "0px";
 	//item.style.height = "55vh";
 	//item.width -= 8;
 	var hero = document.createElement("IMG");
-	hero.className+="img-circle"
 	hero.style.width = "100%";
 	hero.style.padding = "8px";
 	hero.src = imgurl;
@@ -353,27 +330,6 @@ function topTag(industry){
 		var titletext = document.createTextNode("Most Relevant Industry: " + industry);
 	title.appendChild(titletext);
 	content.appendChild(title);
-}
-
-function addTag(name) {
-	if (name != ""){
-	var pinboard = document.getElementById('pinboard');
-	var item = document.createElement("DIV");
-	item.id=name;
-	item.className+= "tagItem col-xs-12 col-sm-3 animated fadeIn";
-	var food = document.createElement("DIV");
-	food.className+="foodItem";
-	var foodName = document.createTextNode(name);
-	food.appendChild(foodName);
-	item.appendChild(food);
-	var button = document.createElement("BUTTON");
-	button.className+="btn button";
-	button.onclick = function() {remove(name);};
-	var x = document.createTextNode("X");
-	button.appendChild(x);
-	item.appendChild(button);
-	pinboard.appendChild(item);
-	}
 }
 
 function addNode(url, prob){
@@ -398,29 +354,7 @@ function addNode(url, prob){
 	pinboard.appendChild(item);
 }
 
-function remove(id){
-	var pinboard = document.getElementById('pinboard');
-	var children = pinboard.children;
-	for (var i = 0; i < children.length; i++) {
-		if (children[i].id === id){
-			pinboard.removeChild(children[i]);
-			var pins = JSON.parse(localStorage.getItem('pins'));
-			/*for (var n = i+1; n < pins[1].length; n++){
-				pins[1][n-1] = pins[1][n];
-				pins[2][n-1] = pins[2][n];
-			}
-			pin[1][pins.length - 1] = */
-			//removeDestination(pins[1][i]);
-			pins[1].splice(i,1);
-			pins[0].splice(i,1);
-			localStorage.setItem('pins',JSON.stringify(pins));
-			break;
-		}
-	}
-}
-
-
-/*function remove(){
+function remove(){
 	var pinboard = document.getElementById('content');
 	var children = pinboard.children;
 	for (var i = 0; i < children.length; i++) {
@@ -431,7 +365,7 @@ function remove(id){
 				pins[1][n-1] = pins[1][n];
 				pins[2][n-1] = pins[2][n];
 			}
-			pin[1][pins.length - 1] = 
+			pin[1][pins.length - 1] = */
 			//removeDestination(pins[1][i]);
 			//pins[1].splice(i,1);
 			//pins[0].splice(i,1);
@@ -443,7 +377,7 @@ function remove(id){
 	while (node.hasChildNodes()) {
     node.removeChild(node.lastChild);
 }
-}*/
+}
 
 function postTopDestination(){
 	var destination = localStorage.getItem('destination');
@@ -581,13 +515,9 @@ function run(imgurl) {
   	postImage(imgurl);
 });
   } else {*/
-	//remove();
-	//updateFields();
-	//localStorage.setItem('imgurl',imgurl);
+	remove();
 	updateLogo(imgurl);
     postImage(imgurl);
-	//remove(imgurl);
-	
  // }
 	
 	

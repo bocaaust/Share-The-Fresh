@@ -6754,4 +6754,42 @@ button.close {
     display: none !important;
   }
 }
+
+.tagItem {
+	background-color: black;
+	border-radius: 16px;
+	color: whitesmoke;
+	text-decoration: none;
+	padding: 8px;
+	margin-left: 20px;
+	margin-top: 20px;
+	opacity: 0.85;
+	border: solid lightgrey 2px;
+}
+.tagItem::hover {
+	text-decoration: none;
+	color: white;
+	
+}
+.button {
+	background:grey;
+	padding-left: 2px;
+	padding-right: 2px;
+	color: white; 
+	padding: 3px; 
+	border: solid white 1px;
+	margin: 2px;
+	border-radius: 20px;
+	margin-left: 0%;
+}
+
+.button::hover {
+	color: white;
+}
+
+.foodItem {
+	width: 75%;
+	text-align: left;
+	display: inline-block;
+}
 /*# sourceMappingURL=bootstrap.css.map */

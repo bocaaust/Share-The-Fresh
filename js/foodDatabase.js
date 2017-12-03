@@ -1,5 +1,13 @@
 var food = [];
-
+food['bacon'] = [184,12,17];
+food['roast beef'] = [130,8,14];
+food['chicken breast'] = [120,2.6,23];
+food['milk'] = [149,7.9,7.7];
+food['sausage'] = [332,28,18];
+food['almond milk'] = [30,2.5,1];
+food['tuna'] = [383,19,33];
+food['steak'] = [332,30,14];
+food['cheese'] = [532,44,33];
 //Here is the format 
 //food['apple'] = [(calories),(fat),(protein)]
 //food['apple'] = [15,30,20]

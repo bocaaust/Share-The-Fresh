@@ -266,6 +266,7 @@ function secondButton(){
 	addTag(document.getElementById('imgurl').value)
 }
 function updateFields(){
+	document.getElementById('Parameters').style.visibility = "visible";
 	var button = document.getElementById("mainButton");
 	var field = document.getElementById("imgurl");
 	field.placeholder = "Food Name";

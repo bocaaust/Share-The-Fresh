@@ -25,10 +25,10 @@
   <script type="text/javascript" src="js/keys.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
   </head>
-  <body style=" background-size: cover; font-family: 'Raleway', sans-serif; color: #363636;background-repeat: no-repeat; background-position: center center; background-attachment: fixed; overflow-x: hidden; width: 100vw;">
+  <body style=" background-color:whitesmoke; cover; font-family: 'Raleway', sans-serif; color: #363636;background-repeat: no-repeat; background-position: center center; background-attachment: fixed; overflow-x: hidden; width: 100vw;">
 	<div class="container-fluid" style="overflow-x: hidden;width: 100vw;">
   		<div class="row" style="margin-bottom: 0vh;">
-  			<div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 text-center" style=" background-color: whitesmoke; border: 1px solid; border-color: darkgray;padding-bottom: 8px; border-radius: 00px; border-bottom: lightblue solid 6px;">
+  			<div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 text-center" style=" background-image: url(img/LeafyHeader2.png); background-size: cover; background-position: center center; border: 1px solid; border-color: darkgray;padding-bottom: 8px; border-radius: 00px; border-bottom: lightblue solid 6px;">
 				<h1 style="font-family: 'Damion', cursive; display: none;">Share the Fresh</h1>
 				<div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-2">
 				<img src="img/FreshLogo1.png" alt="Share the Fresh" class="img-responsive" width="100%"  style="padding-top: 18px;" />
@@ -53,13 +53,14 @@
 			<div class="row">
 			<div class="col-xs-12 col-xs-offset-0 text-center" style=" background-size:cover; padding: background-repeat:no-repeat; background-position: center center; background-attachment: fixed; 12px;opacity: 1.0; box-shadow: 4px 4px black; padding-top: 12px;">
 				<div class="col-xs-10 col-xs-offset-1" style="padding-bottom: 12vh; padding-left: 5vw;">
+				<div class="container-fluid" id="content" ></div>
 					<div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4"><p id ="mainText" class="shadow2">Enter a link to the photo of your groceries</p></div>
 					 <input type="text" id="imgurl"  placeholder="Image URL" style=" border-radius: 5px; width: 30vw;"/>
     <button style="color:black; margin-top: 2px;" class="btn" id="mainButton">GET STARTED</button>
-					<div class="container-fluid" id="content"></div>
+					
 					<div class="container-fluid text-center" id="pinboard">
 					</div>
-					<div class="container-fluid" id="Parameters">
+					<div class="container-fluid" id="Parameters" style="margin-top: 12px;">
 					<div class="col-xs-4">
 					<div class="form-group">
 						<label for="dailyCalories">Daily Calories:</label>
@@ -79,14 +80,16 @@
 						</div>
 
 						</div>
+						<div class="col-xs-8 col-xs-offset-4 col-sm-4 col-sm-offset-4">
 						<button id="submit" style="width: 100%; margin: 8px;" class="btn">Calculate Meal Plan</button>
+						</div>
 					</div>
 					<div class="container-fluid" id="secondary" style="margin-top: 12px;"></div>
 					<div class="container-fluid" id="third"></div>
 					<div class="container-fluid" id="shelters">
 						<h2 class="text-center"> Connect to Local Food Banks to Donate Excess Food</h2>
       <div class="col-xs-12 col-sm-6 col-xs-offset-0 col-sm-offset-3">
-		  <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=food%20pantry&key=AIzaSyA9EIWyEjrb2HzP1ljo077WmBRG8FhyhCc" allowfullscreen></iframe></div>
+		  <iframe width="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=food%20pantry&key=AIzaSyA9EIWyEjrb2HzP1ljo077WmBRG8FhyhCc" style="height: 25vw; min-height: 250px;" allowfullscreen></iframe></div>
 
 					</div>
 				</div>

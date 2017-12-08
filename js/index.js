@@ -344,7 +344,8 @@ function updateLogo(imgurl){
 	//item.style.height = "55vh";
 	//item.width -= 8;
 	var hero = document.createElement("IMG");
-	hero.className+="img-circle"
+	hero.className+="img-thumbnail"
+	hero.style.marginTop = "12px";
 	hero.style.width = "100%";
 	hero.style.padding = "8px";
 	hero.src = imgurl;
@@ -387,7 +388,7 @@ function addTag(name) {
 	var pinboard = document.getElementById('pinboard');
 	var item = document.createElement("DIV");
 	item.id=name;
-	item.className+= "tagItem col-xs-12 col-sm-3 animated fadeIn";
+	item.className+= "tagItem col-xs-12 col-sm-4 animated fadeIn";
 	var food2 = document.createElement("DIV");
 	food2.className+="foodItem";
 	var foodName = document.createTextNode(name);
@@ -670,7 +671,23 @@ function collectNutrition(pins) {
 	return output;
 }
 
+function clearTwo(){
+	var node = document.getElementById('secondary');
+	while (node.hasChildNodes()) {
+    node.removeChild(node.lastChild);
+}
+}
+
+function clearThree(){
+	var node = document.getElementById('third');
+	while (node.hasChildNodes()) {
+    node.removeChild(node.lastChild);
+}
+}
+
 function calculate(){
+	clearTwo();
+	clearThree();
 	console.log("starting calculation");
 	var pins = collectPins();
 	var facts = collectNutrition(pins);
@@ -710,7 +727,7 @@ function calculate(){
 	var mealTitle = document.createElement("H3");
 	var mealTitleText = document.createTextNode("Here is a list of your potential meals");
 	var excessTitle = document.createElement("H3");
-	var excessTitleText = document.createTextNode("Here is a list of excess items purchased you can doante")
+	var excessTitleText = document.createTextNode("Here is a list of excess items purchased you can donate")
 	excessTitle.appendChild(excessTitleText);
 	document.getElementById('third').appendChild(excessTitle);
 	mealTitle.appendChild(mealTitleText);
@@ -736,7 +753,7 @@ function calculate(){
 	for(var r = 0; r< excess.length; r++){
 		if (excess[r]){
 			var excessItem = document.createElement("DIV");
-			excessItem.className+="col-xs-12 col-sm-3 animated fadeIn tagItem text-center";
+			excessItem.className+="col-xs-12 col-sm-4 animated fadeIn tagItem text-center";
 			var excessItemText = document.createTextNode(pins[r]);
 			excessItem.appendChild(excessItemText);
 			document.getElementById('third').appendChild(excessItem);

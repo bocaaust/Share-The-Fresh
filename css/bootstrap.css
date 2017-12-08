@@ -6757,11 +6757,11 @@ button.close {
 @media (min-width: 768px){
 .tagItem {
 	background-color: black;
-	border-radius: 16px;
+	border-radius: 20px;
 	color: whitesmoke;
 	text-decoration: none;
 	padding: 8px;
-	margin-left: 20px;
+	margin-left: 0px;
 	margin-top: 20px;
 	opacity: 0.85;
 	border: solid lightgrey 2px;
@@ -6791,12 +6791,12 @@ button.close {
 	
 }
 .button {
-	background:grey;
+	background:none;
 	padding-left: 2px;
 	padding-right: 2px;
 	color: white; 
 	padding: 3px; 
-	border: solid white 1px;
+	
 	margin: 2px;
 	border-radius: 20px;
 	margin-left: 0%;

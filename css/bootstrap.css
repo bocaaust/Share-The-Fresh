@@ -6811,4 +6811,43 @@ button.close {
 	text-align: left;
 	display: inline-block;
 }
+
+.bg {
+	min-height: 100%;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+    background-image: url(../img/bg4.png);
+    color: #333;
+    margin-left:0px;
+    margin-right:0px;
+}
+
+.shadowHeader {
+	color: #FCFCFC;
+    background-color: black;
+    border: 1px solid black;
+    opacity: .8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+    padding-bottom: 8px;
+    padding-top: 4px;
+}
+.shadow {
+	color: #FCFCFC;
+    background-color: darkcyan;
+    border: 1px solid black;
+    opacity: .8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+		
+}
+
+.shadow2 {
+	color: #FCFCFC;
+    background-color: black;
+    border: 1px solid black;
+    opacity: .8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+		
+}
 /*# sourceMappingURL=bootstrap.css.map */

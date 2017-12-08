@@ -6850,4 +6850,10 @@ button.close {
     filter: alpha(opacity=80); /* For IE8 and earlier */
 		
 }
+
+.box {
+	border-radius: 12px;
+	border: 2px black thin;
+	color: black;
+}
 /*# sourceMappingURL=bootstrap.css.map */

@@ -439,8 +439,8 @@ function remove(id){
 			}
 			pin[1][pins.length - 1] = */
 			//removeDestination(pins[1][i]);
-			pins[1].splice(i,1);
-			pins[0].splice(i,1);
+			pins.splice(i,1);
+			//pins[0].splice(i,1);
 			localStorage.setItem('pins',JSON.stringify(pins));
 			break;
 		}

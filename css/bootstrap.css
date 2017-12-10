@@ -6781,6 +6781,7 @@ button.close {
 	text-decoration: none;
 	padding: 8px;
 	margin-top: 20px;
+	margin-left: 0px;
 	opacity: 0.85;
 	border: solid lightgrey 2px;
 	}

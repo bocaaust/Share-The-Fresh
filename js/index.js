@@ -432,16 +432,16 @@ function remove(id){
 	for (var i = 0; i < children.length; i++) {
 		if (children[i].id === id){
 			pinboard.removeChild(children[i]);
-			var pins = JSON.parse(localStorage.getItem('pins'));
+			//var pins = JSON.parse(localStorage.getItem('pins'));
 			/*for (var n = i+1; n < pins[1].length; n++){
 				pins[1][n-1] = pins[1][n];
 				pins[2][n-1] = pins[2][n];
 			}
 			pin[1][pins.length - 1] = */
 			//removeDestination(pins[1][i]);
-			pins.splice(i,1);
+			//pins.splice(i,1);
 			//pins[0].splice(i,1);
-			localStorage.setItem('pins',JSON.stringify(pins));
+			//localStorage.setItem('pins',JSON.stringify(pins));
 			break;
 		}
 	}
@@ -721,6 +721,7 @@ function calculate(){
 	var backupPins = pins;
 	//pins = dairyPins(pins);
 	//if (pins != false){
+	var notGross = true;
 	var letLen = Math.pow(2, pins.length);
 	for (var i = 0; i < letLen ; i++){
     temp= [];
@@ -735,17 +736,17 @@ function calculate(){
 		has['vegetable'] = false;
 		has['savory'] = false;
 		has['everything'] = false;
-	var notGross = true;
+		notGross = true;
     for (var j=0;j<pins.length;j++) {
-        if ((i & Math.pow(2,j))){ 
+        if ((i & Math.pow(2,j)) && typeof facts[j] != 'undefined'){ 
 			calorieTotal+=facts[j][0];
 			fatTotal+=facts[j][1];
 			proteinTotal+=facts[j][2];
             temp.push(pins[j]);
-			if (calorieTotal > targetCalories || fatTotal > targetFat || targetProteint > proteinTotal){
+			if (calorieTotal > targetCalories || fatTotal > targetFat || proteinTotal > targetProteint){
 				break;
 			}
-			has[food[pins[j]][3]] = true;
+			has[facts[j][3]] = true;
 			if ((has['dairy'] && (has['sour'] || has['condiment'] || has['vegetable']))||(has['sweet'] && (has['condiment'] || has['savory']))){
 				notGross = false;
 				break;
@@ -754,7 +755,7 @@ function calculate(){
     }
 		console.log(temp);
 	if (notGross){
-    if (calorieTotal >= targetCalories*accuracy && calorieTotal <= targetCalories && fatTotal >= targetFat*accuracy && fatTotal <= targetFat && targetProteint >= proteinTotal*accuracy && targetProteint <= proteinTotal) {
+    if (calorieTotal >= targetCalories*accuracy && calorieTotal <= targetCalories && fatTotal >= targetFat*accuracy && fatTotal <= targetFat && targetProteint >= proteinTotal*accuracy && targetProteint <= proteinTotal && meals.includes(temp) == false) {
         meals.push(temp);
     }
 	}

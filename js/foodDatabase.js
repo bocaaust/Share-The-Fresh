@@ -38,6 +38,7 @@ food['eggplant']= [25,0,1,'vegetable'];
 food['olive oil']= [884,0,0,'everything'];
 food['olive']= [167,10,0,'vegetable'];
 food['red pepper']= [31,0,1,'sour'];
+food['pepper']= [31,0,1,'sour'];
 food['dough']= [90,2,3,'everything'];
 food['spinach']= [23,0,3,'vegetable'];
 food['banana']=[89,0,1,'sweet'];

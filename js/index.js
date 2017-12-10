@@ -740,7 +740,7 @@ function calculate(){
         if ((i & Math.pow(2,j))){ 
 			calorieTotal+=facts[j][0];
 			fatTotal+=facts[j][1];
-			proteinTotal+=facts[j][1];
+			proteinTotal+=facts[j][2];
             temp.push(pins[j]);
 			if (calorieTotal > targetCalories || fatTotal > targetFat || targetProteint > proteinTotal){
 				break;

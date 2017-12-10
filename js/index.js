@@ -685,6 +685,24 @@ function clearThree(){
 }
 }
 
+function dairyPins(pins){
+	var output = pins;
+	var containsDairy = false;
+	for(var i = 0; i < output.length; i++){
+		if(food[output[i]][3] == 'dairy'){
+			containsDairy = true;
+		}
+		if(food[output[i]][3] == 'sour' || food[output[i]][3] == 'vegetable' || food[output[i]][3] == 'condiment'){
+			output.splice(i,1);
+		}
+	}
+	if (containsDairy){
+		return output;
+	}else{
+		return false;
+	}
+}
+
 function calculate(){
 	clearTwo();
 	clearThree();
@@ -700,26 +718,49 @@ function calculate(){
 	var fatTotal = 0;
 	var proteinTotal = 0;
 	var accuracy = 0.65;
+	var backupPins = pins;
+	//pins = dairyPins(pins);
+	//if (pins != false){
 	var letLen = Math.pow(2, pins.length);
 	for (var i = 0; i < letLen ; i++){
     temp= [];
 	calorieTotal = 0;
 	proteinTotal = 0;
 		fatTotal = 0;
-	
+	var has = [];
+		has['dairy'] = false;
+		has['sweet'] = false;
+		has['sour'] = false;
+		has['condiment'] = false;
+		has['vegetable'] = false;
+		has['savory'] = false;
+		has['everything'] = false;
+	var notGross = true;
     for (var j=0;j<pins.length;j++) {
         if ((i & Math.pow(2,j))){ 
 			calorieTotal+=facts[j][0];
 			fatTotal+=facts[j][1];
 			proteinTotal+=facts[j][1];
             temp.push(pins[j]);
+			if (calorieTotal > targetCalories || fatTotal > targetFat || targetProteint > proteinTotal){
+				break;
+			}
+			has[food[pins[j]][3]] = true;
+			if ((has['dairy'] && (has['sour'] || has['condiment'] || has['vegetable']))||(has['sweet'] && (has['condiment'] || has['savory']))){
+				notGross = false;
+				break;
+			}
         }
     }
 		console.log(temp);
+	if (notGross){
     if (calorieTotal >= targetCalories*accuracy && calorieTotal <= targetCalories && fatTotal >= targetFat*accuracy && fatTotal <= targetFat && targetProteint >= proteinTotal*accuracy && targetProteint <= proteinTotal) {
         meals.push(temp);
     }
+	}
 }
+//	}
+	
 	var excess = [];
 	for(var l = 0; l < pins.length; l++){
 		excess[l] = true;

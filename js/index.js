@@ -660,14 +660,19 @@ function collectPins(){
 
 function collectNutrition(pins) {
 	var output = [];
-	for (var i=0; i < pins.length; i++){
+	//var pins2 = pins;
+	var newPins = [];
+	var i = pins.length;
+	while(i--){
 		if(pins[i] in food){
 		output.push(food[pins[i]]);
+			newPins.push(pins[i]);
 		}else{
 			remove(pins[i]);
 			pins.splice(i,1);
 		}
 	}
+	pins = newPins;
 	return output;
 }
 
@@ -738,24 +743,27 @@ function calculate(){
 		has['everything'] = false;
 		notGross = true;
     for (var j=0;j<pins.length;j++) {
-        if ((i & Math.pow(2,j)) && typeof facts[j] != 'undefined'){ 
-			calorieTotal+=facts[j][0];
-			fatTotal+=facts[j][1];
-			proteinTotal+=facts[j][2];
+		
+        if ((i & Math.pow(2,j))){ 
+			calorieTotal+=food[pins[j]][0]
+			fatTotal+=food[pins[j]][1]
+			proteinTotal+=food[pins[j]][2]
             temp.push(pins[j]);
 			if (calorieTotal > targetCalories || fatTotal > targetFat || proteinTotal > targetProteint){
 				break;
 			}
-			has[facts[j][3]] = true;
-			if ((has['dairy'] && (has['sour'] || has['condiment'] || has['vegetable']))||(has['sweet'] && (has['condiment'] || has['savory']))){
+			has[food[pins[j]][3]] = true;
+			if ((has['dairy'] && (has['sour'] || has['condiment'] || has['vegetable'])) ||(has['sweet'] && (has['condiment'] || has['savory']))){
 				notGross = false;
 				break;
 			}
         }
     }
-		console.log(temp);
+		
 	if (notGross){
-    if (calorieTotal >= targetCalories*accuracy && calorieTotal <= targetCalories && fatTotal >= targetFat*accuracy && fatTotal <= targetFat && targetProteint >= proteinTotal*accuracy && targetProteint <= proteinTotal && meals.includes(temp) == false) {
+    if (calorieTotal >= targetCalories*accuracy && calorieTotal <= targetCalories && fatTotal >= targetFat*accuracy && fatTotal <= targetFat && proteinTotal >= targetProteint*accuracy && proteinTotal <= targetProteint && meals.includes(temp) == false) {
+		//
+		console.log(calorieTotal);
         meals.push(temp);
     }
 	}
@@ -786,7 +794,7 @@ function calculate(){
 		document.getElementById('secondary').appendChild(mealItem);
 		for (var g = 0; g < pins.length; g++){
 				if (meals[u].includes(pins[g])){
-					console.log(pins[g]);
+					//console.log(pins[g]);
 					excess[g] = false;
 				}
 			}

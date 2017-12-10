@@ -715,9 +715,10 @@ function calculate(){
 	var pins = collectPins();
 	var facts = collectNutrition(pins);
 	var meals = [];
-	var targetCalories = document.getElementById('dailyCalories').value;
-	var targetProteint = document.getElementById('dailyProtein').value;
-	var targetFat = document.getElementById('dailyFat').value;
+	var nutrition = [];
+	var targetCalories = document.getElementById('dailyCalories').value/3;
+	var targetProteint = document.getElementById('dailyProtein').value/3;
+	var targetFat = document.getElementById('dailyFat').value/3;
 	var temp = [];
 	var calorieTotal = 0;
 	var fatTotal = 0;
@@ -765,6 +766,8 @@ function calculate(){
 		//
 		console.log(calorieTotal);
         meals.push(temp);
+		var nutritionList = [calorieTotal,fatTotal,proteinTotal];
+		nutrition.push(nutritionList);
     }
 	}
 }
@@ -788,6 +791,7 @@ function calculate(){
 		for (var c =1; c< meals[u].length; c++){
 			mealString+=", " + meals[u][c];
 		}
+		mealString += "   Calories: " +nutrition[u][0]+"\tFat: " +nutrition[u][1]+"\tProtein: "+nutrition[u][2];
 		var mealItem = document.createElement("H4");
 		var mealItemText = document.createTextNode(mealString);
 		mealItem.appendChild(mealItemText);

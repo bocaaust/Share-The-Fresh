@@ -1,2 +1,0 @@
-
-var API_KEY = 'f81b2a01a7654476a233b3499fdcd578'

@@ -690,6 +690,13 @@ function clearThree(){
 }
 }
 
+function clearFour(){
+	var node = document.getElementById('fourth');
+	while (node.hasChildNodes()) {
+    node.removeChild(node.lastChild);
+}
+}
+
 function dairyPins(pins){
 	var output = pins;
 	var containsDairy = false;
@@ -711,6 +718,8 @@ function dairyPins(pins){
 function calculate(){
 	clearTwo();
 	clearThree();
+	clearFour();
+	var tipFood = "";
 	console.log("starting calculation");
 	var pins = collectPins();
 	var facts = collectNutrition(pins);
@@ -779,12 +788,40 @@ function calculate(){
 	}
 	var mealTitle = document.createElement("H3");
 	var mealTitleText = document.createTextNode("Here is a list of your potential meals");
-	var excessTitle = document.createElement("H3");
-	var excessTitleText = document.createTextNode("Here is a list of excess items purchased you can donate")
-	excessTitle.appendChild(excessTitleText);
-	document.getElementById('third').appendChild(excessTitle);
+	
+
+	
 	mealTitle.appendChild(mealTitleText);
 	document.getElementById('secondary').appendChild(mealTitle);
+	if (meals.length == 0){
+		var mealString = "No combinations of groceries found that meet your nutritional guidelines"
+		var mealItem = document.createElement("H4");
+		var mealItemText = document.createTextNode(mealString);
+		mealItem.appendChild(mealItemText);
+		document.getElementById('secondary').appendChild(mealItem);
+	}else{
+		var random = Math.floor(Math.random()*meals.length)
+		tipFood = meals[random][Math.floor(Math.random()*meals[random].length)];
+		var suggestionTitle = document.createElement("H3");
+		var suggestionTitleText = document.createTextNode("Based off your interest in "+tipFood);
+		suggestionTitle.appendChild(suggestionTitleText);
+		document.getElementById('fourth').appendChild(suggestionTitle);
+		var suggestionContainer = document.createElement("DIV");
+		suggestionContainer.className+="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3";
+		var suggestionImage = document.createElement("IMG");
+		suggestionImage.src = food[tipFood][6];
+		suggestionImage.width ="100%";
+		suggestionImage.className+="img-responsive img-thumbnail";
+		suggestionImage.alt = food[tipFood][5];
+		suggestionContainer.appendChild(suggestionImage);
+		document.getElementById('fourth').appendChild(suggestionContainer);
+		var suggestionText = document.createElement("H4");
+		var suggestionLink = document.createElement("A");
+		suggestionLink.href = food[tipFood][4];
+		var suggestionLinkText = document.createTextNode(food[tipFood][5]);
+		suggestionLink.appendChild(suggestionLinkText);
+		suggestionText.appendChild(suggestionLink);
+		document.getElementById('fourth').appendChild(suggestionText);
 	for(var u=0; u < meals.length; u++){
 		var mealString = (u+1)+". ";
 		mealString+=meals[u][0];
@@ -803,7 +840,13 @@ function calculate(){
 				}
 			}
 	}
+	}
 	
+		if (excess.length > 0){
+	var excessTitle = document.createElement("H3");
+	var excessTitleText = document.createTextNode("Here is a list of excess items purchased you can donate")
+	excessTitle.appendChild(excessTitleText);
+	document.getElementById('third').appendChild(excessTitle);
 	for(var r = 0; r< excess.length; r++){
 		if (excess[r]){
 			var excessItem = document.createElement("DIV");
@@ -816,6 +859,10 @@ function calculate(){
 	}
 	
 	document.getElementById('shelters').style.visibility="visible";
+	}
+	
+	
+	
 	
 	
 }

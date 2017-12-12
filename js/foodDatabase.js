@@ -1,4 +1,4 @@
-var useless = ['vegetable','sweet','sour','spicy','barbecue','ailment','micronutrient','condiment','pasture','carbohydrate','protein','salt','tenderloin','sirloin','dairy product','meat product','hay','straw','herb','jug','kettle','bottle','platter','cinnamon','grub','grass','feast','goody'];
+var useless = ['vegetable','sweet','sour','spicy','barbecue','ailment','micronutrient','condiment','pasture','carbohydrate','protein','salt','tenderloin','sirloin','dairy product','meat product','hay','straw','herb','jug','kettle','bottle','platter','cinnamon','grub','grass','feast','goody','aliment'];
 //Here is the format 
 //food['apple'] = [(calories),(fat),(protein),(category)]
 //food['apple'] = [15,30,20]
@@ -33,7 +33,7 @@ food['broccoli']= [34,0,3,'vegetable'];
 food['lettuce']= [15,0,1,'vegetable'];
 food['egg']= [166,12,11,'savory'];
 food['corn']= [86,1,3,'vegetable'];
-food['pickle']= [12,0,1,'vegetable'];
+food['pickle']= [12,0,1,'sour'];
 food['eggplant']= [25,0,1,'vegetable'];
 food['olive oil']= [884,0,0,'everything'];
 food['olive']= [167,10,0,'vegetable'];

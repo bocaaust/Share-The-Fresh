@@ -344,7 +344,8 @@ function updateLogo(imgurl){
 	//item.style.height = "55vh";
 	//item.width -= 8;
 	var hero = document.createElement("IMG");
-	hero.className+="img-circle"
+	hero.className+="img-thumbnail"
+	hero.style.marginTop = "12px";
 	hero.style.width = "100%";
 	hero.style.padding = "8px";
 	hero.src = imgurl;
@@ -387,7 +388,7 @@ function addTag(name) {
 	var pinboard = document.getElementById('pinboard');
 	var item = document.createElement("DIV");
 	item.id=name;
-	item.className+= "tagItem col-xs-12 col-sm-3 animated fadeIn";
+	item.className+= "tagItem col-xs-12 col-sm-4 animated fadeIn";
 	var food2 = document.createElement("DIV");
 	food2.className+="foodItem";
 	var foodName = document.createTextNode(name);
@@ -431,16 +432,16 @@ function remove(id){
 	for (var i = 0; i < children.length; i++) {
 		if (children[i].id === id){
 			pinboard.removeChild(children[i]);
-			var pins = JSON.parse(localStorage.getItem('pins'));
+			//var pins = JSON.parse(localStorage.getItem('pins'));
 			/*for (var n = i+1; n < pins[1].length; n++){
 				pins[1][n-1] = pins[1][n];
 				pins[2][n-1] = pins[2][n];
 			}
 			pin[1][pins.length - 1] = */
 			//removeDestination(pins[1][i]);
-			pins[1].splice(i,1);
-			pins[0].splice(i,1);
-			localStorage.setItem('pins',JSON.stringify(pins));
+			//pins.splice(i,1);
+			//pins[0].splice(i,1);
+			//localStorage.setItem('pins',JSON.stringify(pins));
 			break;
 		}
 	}
@@ -659,50 +660,119 @@ function collectPins(){
 
 function collectNutrition(pins) {
 	var output = [];
-	for (var i=0; i < pins.length; i++){
+	//var pins2 = pins;
+	var newPins = [];
+	var i = pins.length;
+	while(i--){
 		if(pins[i] in food){
 		output.push(food[pins[i]]);
+			newPins.push(pins[i]);
 		}else{
 			remove(pins[i]);
 			pins.splice(i,1);
 		}
 	}
+	pins = newPins;
 	return output;
 }
 
+function clearTwo(){
+	var node = document.getElementById('secondary');
+	while (node.hasChildNodes()) {
+    node.removeChild(node.lastChild);
+}
+}
+
+function clearThree(){
+	var node = document.getElementById('third');
+	while (node.hasChildNodes()) {
+    node.removeChild(node.lastChild);
+}
+}
+
+function dairyPins(pins){
+	var output = pins;
+	var containsDairy = false;
+	for(var i = 0; i < output.length; i++){
+		if(food[output[i]][3] == 'dairy'){
+			containsDairy = true;
+		}
+		if(food[output[i]][3] == 'sour' || food[output[i]][3] == 'vegetable' || food[output[i]][3] == 'condiment'){
+			output.splice(i,1);
+		}
+	}
+	if (containsDairy){
+		return output;
+	}else{
+		return false;
+	}
+}
+
 function calculate(){
+	clearTwo();
+	clearThree();
 	console.log("starting calculation");
 	var pins = collectPins();
 	var facts = collectNutrition(pins);
 	var meals = [];
-	var targetCalories = document.getElementById('dailyCalories').value;
-	var targetProteint = document.getElementById('dailyProtein').value;
-	var targetFat = document.getElementById('dailyFat').value;
+	var nutrition = [];
+	var targetCalories = document.getElementById('dailyCalories').value/3;
+	var targetProteint = document.getElementById('dailyProtein').value/3;
+	var targetFat = document.getElementById('dailyFat').value/3;
 	var temp = [];
 	var calorieTotal = 0;
 	var fatTotal = 0;
 	var proteinTotal = 0;
 	var accuracy = 0.65;
+	var backupPins = pins;
+	//pins = dairyPins(pins);
+	//if (pins != false){
+	var notGross = true;
 	var letLen = Math.pow(2, pins.length);
 	for (var i = 0; i < letLen ; i++){
     temp= [];
 	calorieTotal = 0;
 	proteinTotal = 0;
 		fatTotal = 0;
-	
+	var has = [];
+		has['dairy'] = false;
+		has['sweet'] = false;
+		has['sour'] = false;
+		has['condiment'] = false;
+		has['vegetable'] = false;
+		has['savory'] = false;
+		has['everything'] = false;
+		notGross = true;
     for (var j=0;j<pins.length;j++) {
+		
         if ((i & Math.pow(2,j))){ 
-			calorieTotal+=facts[j][0];
-			fatTotal+=facts[j][1];
-			proteinTotal+=facts[j][1];
+			calorieTotal+=food[pins[j]][0]
+			fatTotal+=food[pins[j]][1]
+			proteinTotal+=food[pins[j]][2]
             temp.push(pins[j]);
+			if (calorieTotal > targetCalories || fatTotal > targetFat || proteinTotal > targetProteint){
+				break;
+			}
+			has[food[pins[j]][3]] = true;
+			if ((has['dairy'] && (has['sour'] || has['condiment'] || has['vegetable'])) ||(has['sweet'] && (has['condiment'] || has['savory']))){
+				notGross = false;
+				break;
+			}
         }
     }
-		console.log(temp);
-    if (calorieTotal >= targetCalories*accuracy && calorieTotal <= targetCalories && fatTotal >= targetFat*accuracy && fatTotal <= targetFat && targetProteint >= proteinTotal*accuracy && targetProteint <= proteinTotal) {
+		
+	if (notGross){
+    if (calorieTotal >= targetCalories*accuracy && calorieTotal <= targetCalories && fatTotal >= targetFat*accuracy && fatTotal <= targetFat && proteinTotal >= targetProteint*accuracy && proteinTotal <= targetProteint && meals.includes(temp) == false) {
+		//
+		console.log(calorieTotal);
         meals.push(temp);
+		var nutritionList = [calorieTotal,fatTotal,proteinTotal];
+		nutrition.push(nutritionList);
     }
+	}
 }
+//	}
+	
 	var excess = [];
 	for(var l = 0; l < pins.length; l++){
 		excess[l] = true;
@@ -710,7 +780,7 @@ function calculate(){
 	var mealTitle = document.createElement("H3");
 	var mealTitleText = document.createTextNode("Here is a list of your potential meals");
 	var excessTitle = document.createElement("H3");
-	var excessTitleText = document.createTextNode("Here is a list of excess items purchased you can doante")
+	var excessTitleText = document.createTextNode("Here is a list of excess items purchased you can donate")
 	excessTitle.appendChild(excessTitleText);
 	document.getElementById('third').appendChild(excessTitle);
 	mealTitle.appendChild(mealTitleText);
@@ -721,13 +791,14 @@ function calculate(){
 		for (var c =1; c< meals[u].length; c++){
 			mealString+=", " + meals[u][c];
 		}
+		mealString += "   Calories: " +nutrition[u][0]+"\tFat: " +nutrition[u][1]+"\tProtein: "+nutrition[u][2];
 		var mealItem = document.createElement("H4");
 		var mealItemText = document.createTextNode(mealString);
 		mealItem.appendChild(mealItemText);
 		document.getElementById('secondary').appendChild(mealItem);
 		for (var g = 0; g < pins.length; g++){
 				if (meals[u].includes(pins[g])){
-					console.log(pins[g]);
+					//console.log(pins[g]);
 					excess[g] = false;
 				}
 			}
@@ -736,7 +807,7 @@ function calculate(){
 	for(var r = 0; r< excess.length; r++){
 		if (excess[r]){
 			var excessItem = document.createElement("DIV");
-			excessItem.className+="col-xs-12 col-sm-3 animated fadeIn tagItem text-center";
+			excessItem.className+="col-xs-12 col-sm-4 animated fadeIn tagItem text-center";
 			var excessItemText = document.createTextNode(pins[r]);
 			excessItem.appendChild(excessItemText);
 			document.getElementById('third').appendChild(excessItem);

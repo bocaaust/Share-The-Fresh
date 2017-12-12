@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-   	<meta name="Description" content="An AI Based Logo Analytics Tool">
+   	<meta name="Description" content="An AI Based Nutrition and Charity Project">
     <title>Share The Fresh</title>
 
     <!-- Bootstrap -->
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Damion" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Raleway|Slabo+27px" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -22,62 +25,75 @@
   <script type="text/javascript" src="js/keys.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
   </head>
-  <body style="background-image: url(img/bg.jpg); background-size: cover; font-family: 'Raleway', sans-serif; color: #363636;overflow-x: hidden;background-repeat: no-repeat; background-position: center center; background-attachment: fixed;">
-
-  		<div class="row" style="margin-bottom: 10vh;">
-  			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2" style="margin-top: 10vh; background-color: whitesmoke; border: 8px solid; border-color: darkgray;padding-bottom: 8px;">
-				<h1 style="font-family: 'Open Sans Condensed', sans-serif;">Share the Fresh</h1>
-				<h4>An AI Based Nutrition and Charity Project</h4>			
+  <body style=" background-color:whitesmoke; cover; font-family: 'Raleway', sans-serif; color: #363636;background-repeat: no-repeat; background-position: center center; background-attachment: fixed; overflow-x: hidden; width: 100vw;">
+	<div class="container-fluid" style="overflow-x: hidden;width: 100vw;">
+  		<div class="row" style="margin-bottom: 0vh;">
+  			<div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 text-center" style=" background-image: url(img/LeafyHeader2.png); background-size: cover; background-position: center center; border: 1px solid; border-color: darkgray;padding-bottom: 8px; border-radius: 00px; border-bottom: lightblue solid 6px;">
+				<h1 style="font-family: 'Damion', cursive; display: none;">Share the Fresh</h1>
+				<div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-2">
+				<img src="img/FreshLogo1.png" alt="Share the Fresh" class="img-responsive" width="100%"  style="padding-top: 18px;" />
+				<h4>An AI Based Nutrition and Charity Project</h4>	
+				</div>
+					<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0">
+					
+			<h2 class = "dailyTip box" id="dailyTip" style="padding: 8px;"></h2>
+				<h4 class="box" style="padding: 8px;"><a id="link" class="twitter-share-button"
+  href="https://twitter.com/intent/tweet?text=I%20just%20used%20ShareTheFresh%20to%20help%20me%20diet%20and%20save!" style="color: black;">
 				
-				<div class = "col-xs-2 col-xs-offset1"><img src="img/tipIcon.png" width="100%" class="img-responsive" alt="Tip Icon"></div><div class = "col-xs-8 dailyTip" id="dailyTip"></div>
-				<div class="col-xs-12"><a class="twitter-share-button"
-  href="https://twitter.com/intent/tweet?text=I%20just%20used%20ShareTheFresh%20to%20help%20me%20diet%20and%20save!"
-				<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=I%20just%20used%20ShareTheFresh%20to%20help%20me%20diet%20and%20donate!" data-size="large">
-					Tell Your Friends and Share the Fresh</a></div>
+					Tell Your Friends and Share the Fresh</a></h4>
+				
+				</div>
+						
+				
+				<!--<div class = "col-xs-2 col-xs-offset1"><img src="img/tipIcon.png" width="100%" class="img-responsive" alt="Tip Icon"></div>-->
+				
 			</div>
 			</div>
+			
 			<div class="row">
-			<div class="col-xs-10 col-xs-offset-1" style="background-image: url(img/white.jpg); background-size:cover; border: solid 3px darkgreen; border-radius: 16px; padding: 12px;opacity: 0.9; margin-bottom: 5vh;">
-				<div class="col-xs-10 col-xs-offset-1" style="padding-bottom: 12vh;">
-					<p id ="mainText">Enter a link to the photo of your groceries</p>
-					 <input type="text" id="imgurl"  placeholder="Image URL" style="color:black; border-radius: 5px; width: 30vw;"/>
+			<div class="col-xs-12 col-xs-offset-0 text-center" style=" background-size:cover; padding: background-repeat:no-repeat; background-position: center center; background-attachment: fixed; 12px;opacity: 1.0; box-shadow: 4px 4px black; padding-top: 12px;">
+				<div class="col-xs-10 col-xs-offset-1" style="padding-bottom: 12vh; padding-left: 5vw;">
+				<div class="container-fluid" id="content" ></div>
+					<div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4"><p id ="mainText" class="shadow2">Enter a link to the photo of your groceries</p></div>
+					 <input type="text" id="imgurl"  placeholder="Image URL" style=" border-radius: 5px; width: 30vw;"/>
     <button style="color:black; margin-top: 2px;" class="btn" id="mainButton">GET STARTED</button>
-					<div class="container-fluid" id="content"></div>
+					<div class="col-xs-12" id="upload">
+						
+					</div>
+					
 					<div class="container-fluid text-center" id="pinboard">
 					</div>
-					<div class="container-fluid" id="Parameters">
-					<div class="col-xs-4">
+					<div class="container-fluid" id="Parameters" style="margin-top: 12px;">
+					<div class="col-sm-4 col-xs-12">
 					<div class="form-group">
 						<label for="dailyCalories">Daily Calories:</label>
-					<input type="text" id="dailyCalories" placeholder="Calories">
+					<input type="text" id="dailyCalories" placeholder="Calories" style="width: 90%">
 						</div>
 						</div>
-						<div class="col-xs-4">
+						<div class="col-sm-4 col-xs-12">
 					<div class="form-group">
-						<label for="dailyCalories">Daily Protein:</label>
-					<input type="text" id="dailyProtein" placeholder="Protein">
+						<label for="dailyProtein">Daily Protein:</label>
+					<input type="text" id="dailyProtein" placeholder="Protein" style="width: 90%">
 						</div>
 						</div>
-						<div class="col-xs-4">
+						<div class="col-sm-4 col-xs-12">
 					<div class="form-group">
-						<label for="dailyCalories">Daily Fat:</label>
-					<input type="text" id="dailyFat" placeholder="Fat">
+						<label for="dailyFat">Daily Fat:</label>
+					<input type="text" id="dailyFat" placeholder="Fat" style="width: 90%">
 						</div>
 
 						</div>
-						<button id="submit" style="width: 100%; margin: 8px;">Calculate Meal Plan</button>
+						<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+						<button id="submit" style="width: 100%; margin: 8px;" class="btn">Calculate Meal Plan</button>
+						</div>
 					</div>
-					<div class="container-fluid" id="secondary"></div>
+					<div class="container-fluid" id="secondary" style="margin-top: 12px;"></div>
 					<div class="container-fluid" id="third"></div>
 					<div class="container-fluid" id="shelters">
 						<h2 class="text-center"> Connect to Local Food Banks to Donate Excess Food</h2>
-<<<<<<< HEAD
-      <div class="col-xs-12 col-sm-6 col-xs-offset-0 col-sm-offset-3">
-		  <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=food%20pantry&key=AIzaSyA9EIWyEjrb2HzP1ljo077WmBRG8FhyhCc" allowfullscreen></iframe></div>
-=======
+      <div class="col-xs-12 col-sm-10 col-xs-offset-0 col-sm-offset-1">
+		  <iframe width="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=food%20pantry&key=AIzaSyA9EIWyEjrb2HzP1ljo077WmBRG8FhyhCc" style="height: 25vw; min-height: 250px;" allowfullscreen></iframe></div>
 
-<iframe width="66.66666667%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=food%20pantry&key=AIzaSyA9EIWyEjrb2HzP1ljo077WmBRG8FhyhCc" allowfullscreen></iframe>
->>>>>>> origin/master
 					</div>
 				</div>
 			</div>
@@ -101,6 +117,12 @@
 		var d = new Date();
 		var tipText = document.createTextNode("Tip of the Day: "+ nutritionTips[d.getDate()]);
 		document.getElementById('dailyTip').appendChild(tipText);
+			var str = "https://twitter.com/intent/tweet?text=";
+			var addition = ", Check Out www.sharethefresh.life";
+			str+= nutritionTips[d.getDate()].replace(" ","%20");
+			str+= "%20"+addition.replace(" ","%20");
+			document.getElementById('link').href = str;
 	  </script>
+	  </div>
   </body>
 </html>

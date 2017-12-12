@@ -282,7 +282,7 @@ function updateFields(){
 	hint.removeChild(hint.lastChild);
 	var hintText = document.createTextNode("Missing a Food? Enter it Below");
 	hint.appendChild(hintText);
-		
+		document.getElementById('upload').style.visibility="hidden";
 }
 
 function updateTopDestination(tags){
@@ -590,6 +590,66 @@ function searchAirbnb(destination){
     console.log(err);
   });
 }
+
+function handleFiles(imgfile){
+	 
+
+	var content = document.getElementById('content');
+	var item = document.createElement("DIV");
+	item.id = 'box';
+	item.className += "animated fadeIn first col-xs-12 col-sm-6 col-xs-offset-0 col-sm-offset-3";
+	//item.style.margin = "0px";
+	//item.style.height = "55vh";
+	//item.width -= 8;
+	var hero = document.createElement("IMG");
+	hero.className+="img-thumbnail";
+	hero.style.marginTop = "12px";
+	hero.style.width = "100%";
+	hero.style.padding = "8px";
+	//hero.src = imgurl;
+	if (FileReader && imgfile && imgfile.length) {
+        var fr = new FileReader();
+		//var fileString = "";
+		//var fileString;
+        fr.onload = function () {
+			hero.src=fr.result;
+				var input = {    
+     "inputs": [      
+       {        
+          "data": {          
+             "image": {            
+                "base64": fr.result.replace(/^data:image\/(png|jpg|jpeg);base64,/, "")
+			 }    
+          }      
+       }    
+     ]  
+};
+  var url = 'https://api.clarifai.com/v2/models/bd367be194cf45149e75f01d59f77ba7/outputs';
+  return axios.post(url, input, {
+    'headers': {
+      'Authorization': 'Key ' + API_KEY,
+		'Content-Type': 'application/json'
+    }
+  }).then(function(r) {
+    parseResponse(r.data);
+  }, function(err) {
+    console.log('Sorry, something is wrong: ' + err);
+  });
+			//fileString = fr.result;
+        };
+        fr.readAsDataURL(imgfile[0]);
+		item.appendChild(hero);
+		content.appendChild(item);
+		//console.log(fr.result);
+		
+	
+    }
+	
+	
+	
+}
+
+
 
 function run(imgurl) {
 	

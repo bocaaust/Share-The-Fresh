@@ -57,8 +57,12 @@
 					<div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4"><p id ="mainText" class="shadow2">Enter a link to the photo of your groceries</p></div>
 					 <input type="text" id="imgurl"  placeholder="Image URL" style=" border-radius: 5px; width: 30vw;"/>
     <button style="color:black; margin-top: 2px;" class="btn" id="mainButton">GET STARTED</button>
-					<div class="col-xs-12" id="upload">
-						
+					<div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4" id="upload" >
+					<div class="container-fluid">
+						<div class="form-group">
+						<input type="file" id="fileInput" onchange="handleFiles(this.files)">
+						</div>
+						</div>
 					</div>
 					
 					<div class="container-fluid text-center" id="pinboard">
@@ -91,7 +95,7 @@
 						</div>
 						<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-xs-offset-0">
 							<div class="col-sm-4">
-								<a href="www.calculator.net/calorie-calculator.html">Calories?</a>
+								<a href="http://www.calculator.net/calorie-calculator.html">Calories?</a>
 							</div>
 							<div class="col-sm-4">
 								<a href="http://www.calculator.net/protein-calculator.html">Protein?</a>

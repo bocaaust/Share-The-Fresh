@@ -257,7 +257,7 @@ function parseResponse(resp) {
 	}
 	updateFields();
 	//pins[1][pins[1].length] = classes;
-	localStorage.setItem('pins',JSON.stringify(pins));
+	//localStorage.setItem('pins',JSON.stringify(pins));
 	//addNode(pins[0][pins[0].length - 1], classes);
 	//updateTopDestination(classes);
   //return classes;
@@ -802,11 +802,13 @@ function calculate(){
 	}else{
 		var random = Math.floor(Math.random()*meals.length)
 		tipFood = meals[random][Math.floor(Math.random()*meals[random].length)];
-		if (food[tipFood].length > 3){
+		if (food[tipFood].length > 4){
 		var suggestionTitle = document.createElement("H3");
 		var suggestionTitleText = document.createTextNode("Based off your interest in "+tipFood);
 		suggestionTitle.appendChild(suggestionTitleText);
 		document.getElementById('fourth').appendChild(suggestionTitle);
+			var suggestionLink = document.createElement("A");
+		suggestionLink.href = food[tipFood][4];
 		var suggestionContainer = document.createElement("DIV");
 		suggestionContainer.className+="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3";
 		var suggestionImage = document.createElement("IMG");
@@ -817,13 +819,13 @@ function calculate(){
 		suggestionContainer.appendChild(suggestionImage);
 		//document.getElementById('fourth').appendChild(suggestionContainer);
 		var suggestionText = document.createElement("H4");
-		var suggestionLink = document.createElement("A");
-		suggestionLink.href = food[tipFood][4];
+		
 		var suggestionLinkText = document.createTextNode(food[tipFood][5]);
-		suggestionLink.appendChild(suggestionLinkText);
-		suggestionText.appendChild(suggestionLink);
+		//suggestionLink.appendChild(suggestionLinkText);
+		suggestionText.appendChild(suggestionLinkText);
 		suggestionContainer.appendChild(suggestionText);
-		document.getElementById('fourth').appendChild(suggestionContainer);
+			suggestionLink.appendChild(suggestionContainer);
+		document.getElementById('fourth').appendChild(suggestionLink);
 		}
 		//document.getElementById('fourth').appendChild(suggestionText);
 	for(var u=0; u < meals.length; u++){

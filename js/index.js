@@ -802,6 +802,7 @@ function calculate(){
 	}else{
 		var random = Math.floor(Math.random()*meals.length)
 		tipFood = meals[random][Math.floor(Math.random()*meals[random].length)];
+		if (food[tipFood].length > 3){
 		var suggestionTitle = document.createElement("H3");
 		var suggestionTitleText = document.createTextNode("Based off your interest in "+tipFood);
 		suggestionTitle.appendChild(suggestionTitleText);
@@ -810,18 +811,21 @@ function calculate(){
 		suggestionContainer.className+="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3";
 		var suggestionImage = document.createElement("IMG");
 		suggestionImage.src = food[tipFood][6];
-		suggestionImage.width ="100%";
+		suggestionImage.style.width ="100%";
 		suggestionImage.className+="img-responsive img-thumbnail";
 		suggestionImage.alt = food[tipFood][5];
 		suggestionContainer.appendChild(suggestionImage);
-		document.getElementById('fourth').appendChild(suggestionContainer);
+		//document.getElementById('fourth').appendChild(suggestionContainer);
 		var suggestionText = document.createElement("H4");
 		var suggestionLink = document.createElement("A");
 		suggestionLink.href = food[tipFood][4];
 		var suggestionLinkText = document.createTextNode(food[tipFood][5]);
 		suggestionLink.appendChild(suggestionLinkText);
 		suggestionText.appendChild(suggestionLink);
-		document.getElementById('fourth').appendChild(suggestionText);
+		suggestionContainer.appendChild(suggestionText);
+		document.getElementById('fourth').appendChild(suggestionContainer);
+		}
+		//document.getElementById('fourth').appendChild(suggestionText);
 	for(var u=0; u < meals.length; u++){
 		var mealString = (u+1)+". ";
 		mealString+=meals[u][0];
@@ -841,8 +845,9 @@ function calculate(){
 			}
 	}
 	}
+	document.getElementById('shelters').style.visibility="hidden";
 	
-		if (excess.length > 0){
+		if (excess.includes(true)){
 	var excessTitle = document.createElement("H3");
 	var excessTitleText = document.createTextNode("Here is a list of excess items purchased you can donate")
 	excessTitle.appendChild(excessTitleText);
@@ -859,6 +864,8 @@ function calculate(){
 	}
 	
 	document.getElementById('shelters').style.visibility="visible";
+	}else{
+		document.getElementById('shelters').style.visibility="hidden";
 	}
 	
 	

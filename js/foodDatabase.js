@@ -1,9 +1,9 @@
 var useless = ['vegetable','sweet','sour','spicy','barbecue','ailment','micronutrient','condiment','pasture','carbohydrate','protein','salt','tenderloin','sirloin','dairy product','meat product','hay','straw','herb','jug','kettle','bottle','platter','cinnamon','grub','grass','feast','goody','aliment'];
 //Here is the format 
-//food['apple'] = [(calories),(fat),(protein),(category)]
+//food['apple'] = [(calories),(fat),(protein),(category),(affiliate url),(Title),(Image URL)]
 //food['apple'] = [15,30,20]
 var food = {};
-food['bacon'] = [184,12,17,'everything'];
+food['bacon'] = [184,12,17,'everything','https://www.amazon.com/gp/product/B011Q34VWM/ref=as_li_tl?ie=UTF8&tag=sharethefresh-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B011Q34VWM&linkId=144ae5ce7d36b1e9ae51764865706b05','Organic Prairie, Mighty Beef Bar, Organic 100% Grass-Fed Beef, Paleo, Gluten Free, Uncured Bacon and Apple, 1 Ounce, Pack of 12','https://images-na.ssl-images-amazon.com/images/I/41U2vp72ohL.jpg','Organic'];
 food['roast beef'] = [130,8,14,'savory'];
 food['chicken breast'] = [120,2.6,23,'savory'];
 food['milk'] = [149,7.9,7.7,'dairy'];

@@ -4,13 +4,13 @@ var useless = ['vegetable','sweet','sour','spicy','barbecue','ailment','micronut
 //food['apple'] = [15,30,20]
 var food = {};
 food['bacon'] = [184,12,17,'everything','https://www.amazon.com/gp/product/B011Q34VWM/ref=as_li_tl?ie=UTF8&tag=sharethefresh-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B011Q34VWM&linkId=144ae5ce7d36b1e9ae51764865706b05','Organic Prairie, Mighty Beef Bar, Organic 100% Grass-Fed Beef, Paleo, Gluten Free, Uncured Bacon and Apple, 1 Ounce, Pack of 12','https://images-na.ssl-images-amazon.com/images/I/41U2vp72ohL.jpg','Organic'];
-food['roast beef'] = [130,8,14,'savory'];
-food['chicken breast'] = [120,2.6,23,'savory'];
-food['milk'] = [149,7.9,7.7,'dairy'];
-food['sausage'] = [332,28,18,'savory'];
-food['almond milk'] = [30,2.5,1,'dairy'];
-food['tuna'] = [383,19,33,'savory'];
-food['steak'] = [332,30,14,'savory'];
+food['roast beef'] = [130,8,14,'savory','http://amzn.to/2BUyICz','USDA Certified Organic Grass-Fed Boneless Prime Rib Roast','https://images-na.ssl-images-amazon.com/images/I/51ueiE7t%2BkL.jpg'];
+food['chicken breast'] = [120,2.6,23,'savory','http://amzn.to/2iUBzUI','H.F.s Outstanding All Natural Skinless Boneless Chicken Breast 40 Ounce','https://images-na.ssl-images-amazon.com/images/I/41%2BAsk49niL.jpg'];
+food['milk'] = [149,7.9,7.7,'dairy','https://www.amazon.com/gp/product/B00032G1S0/ref=as_li_tl?ie=UTF8&tag=sharethefresh-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00032G1S0&linkId=855d42c6df3a74f6f7017084e8d2a2fe','Tuscan Dairy Whole Vitamin D Milk, Gallon, 128 oz','https://images-na.ssl-images-amazon.com/images/I/41wKKumJtUL.jpg'];
+food['sausage'] = [332,28,18,'savory','http://amzn.to/2iUCwfK','Natural Hog Casings for Sausage by Oversea Casing','https://images-na.ssl-images-amazon.com/images/I/5169dIOkVhL.jpg'];
+food['almond milk'] = [30,2.5,1,'dairy','http://amzn.to/2iRw0WQ','Silk Almond Milk, Unsweetened Vanilla, 32 Fluid Ounce (Pack of 6)','https://images-na.ssl-images-amazon.com/images/I/51aZdvopBhL.jpg'];
+food['tuna'] = [383,19,33,'savory','http://amzn.to/2AcIf7n','StarKist Chunk Light Tuna in Water, 5 Ounce Cans Pack of 8','https://images-na.ssl-images-amazon.com/images/I/51sB9NGKikL.jpg'];
+food['steak'] = [332,30,14,'savory',''];
 food['cheese'] = [532,44,33,'everything'];
 food['tomato']= [18,0,1,'vegetable'];
 food['onion']= [40,0,1,'vegetable'];

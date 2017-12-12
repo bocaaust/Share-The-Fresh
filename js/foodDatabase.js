@@ -93,7 +93,7 @@ food['hummus']=[166,10,8,'everything'];
 food['ginger']=[80,1,2,'everything'];
 food['chicken curry']=[313,22,20,'savory'];
 food['noodles']=[108,0,2,'savory'];
-food['lasagne']=[500,8,23,'savory'];
+food['lasagna']=[500,8,23,'savory'];
 food['baked potato']=[94,0,2,'savory'];
 food['toast']=[246,2,9,'savory'];
 food['radish']=[18,0,1,'vegetable'];
@@ -133,3 +133,11 @@ food['peach']=[39,0,1,'sweet'];
 food['plum']=[46,0,1,'sweet'];
 food['prune']=[160,2,3,'sweet'];
 food['raisin']=[296,1,3,'sweet'];
+food['gouda']=[256,27,25,'everything'];
+food['cheddar']=[403,33,25,'everything'];
+food['cottage cheese']=[93,4,12,'everything'];
+food['cream cheese']=[342,34,6,'everything'];
+food['pepperjack cheese']=[357,29,25,'everything'];
+food['mozzarella']=[237,18,18,'everything'];
+
+

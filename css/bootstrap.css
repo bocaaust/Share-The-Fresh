@@ -6791,6 +6791,19 @@ button.close {
 	color: white;
 	
 }
+
+.tagItemGreen{
+	background-color:lightgreen;
+	color:black;
+}
+.tagItemYellow{
+	background-color:lightgoldenrodyellow;
+	color:black;
+}
+.tagItemRed{
+	background-color:lightcoral;
+	color:black;
+}
 .button {
 	background:none;
 	padding-left: 2px;

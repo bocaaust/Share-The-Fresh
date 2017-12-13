@@ -918,6 +918,13 @@ function calculate(){
 		if (excess[r]){
 			var excessItem = document.createElement("DIV");
 			excessItem.className+="col-xs-12 col-sm-4 animated fadeIn tagItem text-center";
+			if (food[pins[r]][3] == 'savory' || food[pins[r]][3] == 'vegetable' || (food[pins[r]][3] == 'sour' && pins[r] != 'beer' && pins[r] != 'vinegar' && pins[r] != 'cider') || fruits.includes(pins[r])){
+				excessItem.className+=" tagItemGreen";
+			}else if (food[pins[r]][3] == 'dairy' || yellow.includes(pins[r])){
+				excessItem.className+=" tagItemYellow";
+			}else{
+				excessItem.className+=" tagItemRed";
+			}
 			var excessItemText = document.createTextNode(pins[r]);
 			excessItem.appendChild(excessItemText);
 			document.getElementById('third').appendChild(excessItem);

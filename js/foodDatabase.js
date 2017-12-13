@@ -1,4 +1,7 @@
-var useless = ['vegetable','sweet','sour','spicy','barbecue','ailment','micronutrient','condiment','pasture','carbohydrate','protein','salt','tenderloin','sirloin','dairy product','meat product','hay','straw','herb','jug','kettle','bottle','platter','cinnamon','grub','grass','feast','goody','aliment'];
+var useless = ['vegetable','sweet','sour','spicy','barbecue','ailment','micronutrient','condiment','pasture','carbohydrate','protein','salt','tenderloin','sirloin','dairy product','meat product','hay','straw','herb','jug','kettle','bottle','platter','cinnamon','grub','grass','feast','goody','aliment','meat'];
+
+var fruits = ['banana','cherry','grapes','strawberry','blueberry','raspberry','blackberry','peach','plum','prune','raisin'];
+var yellow = ['bread', 'dough', 'cheese', 'pasta', 'rice', 'gouda', 'cheddar', 'mozzarella', 'cottage cheese', 'pepperjack cheese']
 //Here is the format 
 //food['apple'] = [(calories),(fat),(protein),(category),(affiliate url),(Title),(Image URL)]
 //food['apple'] = [15,30,20]

@@ -823,7 +823,7 @@ function calculate(){
 				break;
 			}
 			has[food[pins[j]][3]] = true;
-			if ((has['dairy'] && (has['sour'] || has['condiment'] || has['vegetable'])) ||(has['sweet'] && (has['condiment'] || has['savory']))){
+			if ((has['dairy'] && (has['sour'] || has['condiment'] || has['vegetable'])) ||(has['sweet'] && (has['condiment'] || has['savory'])) || (has['condiment'] && (has['vegetable']))){
 				notGross = false;
 				break;
 			}

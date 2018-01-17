@@ -142,8 +142,8 @@ food['raisin']=[296,1,3,'sweet','http://amzn.to/2B5TOx7','Sun Maid Organic Raisi
 food['gouda']=[256,27,25,'everything','http://amzn.to/2DC93AL','Kraft Cheese Spread, Pimento, 5-Ounce (Pack of 6)','https://images-na.ssl-images-amazon.com/images/I/51IHoRVWYjL.jpg'];
 food['cheddar']=[403,33,25,'everything','http://amzn.to/2D7Ma6Z','Annies Organic Macaroni and Cheese, Shells & Aged Cheddar Mac and Cheese, 6 oz Box (Pack of 12)','https://images-na.ssl-images-amazon.com/images/I/51o3iFuPt%2BL.jpg'];
 food['cottage cheese']=[93,4,12,'everything','http://amzn.to/2mBPqR9','LOVOUS 100% Unbleached Cheesecloth Ultra-Fine Grade 50 Butter Muslin Perfect for Cooking, Nut milk Filter, Cheese Making, Broth Strainer, Muslin Bag 2 Sq Yards/ 18 SQ Feet','https://images-na.ssl-images-amazon.com/images/I/51LZXS95fOL.jpg'];
-food['cream cheese']=[342,34,6,'dairy','','',''];
-food['pepperjack cheese']=[357,29,25,'everything','','',''];
-food['mozzarella']=[237,18,18,'everything','','',''];
+food['cream cheese']=[342,34,6,'dairy','http://amzn.to/2Dgvtuc','Trident Wild Alaskan Smoked Sockeye Salmon - 567g/20 Oz','https://images-na.ssl-images-amazon.com/images/I/51qzSCIQsaL.jpg'];
+food['pepperjack cheese']=[357,29,25,'everything','http://amzn.to/2Dh0RsO','Whisps Cheese Crisps 3 Pack Assortment (2.12oz) Cheddar, Parmesan & Asiago/Pepperjack','https://images-na.ssl-images-amazon.com/images/I/51vQhpOXZBL.jpg'];
+food['mozzarella']=[237,18,18,'everything','http://amzn.to/2B7v4nY','Teeny Tiny Spice Co. of Vermont Organic Zaatar, 2.8 Oz','https://images-na.ssl-images-amazon.com/images/I/514%2BmuzuE8L.jpg'];
 
 

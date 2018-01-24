@@ -1,4 +1,4 @@
-var useless = ['vegetable','sweet','sour','spicy','barbecue','ailment','micronutrient','condiment','pasture','carbohydrate','protein','salt','tenderloin','sirloin','dairy product','meat product','hay','straw','herb','jug','kettle','bottle','platter','cinnamon','grub','grass','feast','goody','aliment','meat','spork','fork','spoon','knife'];
+var useless = ['vegetable','sweet','sour','spicy','barbecue','ailment','micronutrient','condiment','pasture','carbohydrate','protein','salt','tenderloin','sirloin','dairy product','meat product','hay','straw','herb','jug','kettle','bottle','platter','cinnamon','grub','grass','feast','goody','aliment','meat','spork','fork','spoon','knife','citrus','salad','sandwich','beverage'];
 
 var fruits = ['banana','cherry','grapes','strawberry','blueberry','raspberry','blackberry','peach','plum','prune','raisin'];
 var yellow = ['bread', 'dough', 'cheese', 'pasta', 'rice', 'gouda', 'cheddar', 'mozzarella', 'cottage cheese', 'pepperjack cheese']
@@ -41,7 +41,7 @@ food['eggplant']= [137,1,5.4,'vegetable','http://amzn.to/2rhImin','Tasty Bite In
 food['olive oil']= [119,13.5,0,'everything','http://amzn.to/2rbBVNL','Zoe Organic Extra Virgin Olive Oil, 25.5 FL. OZ. tins (Pack of 2)','https://images-na.ssl-images-amazon.com/images/I/51O995m7eJL.jpg'];
 food['olive']= [155,14.4,1.1,'vegetable','http://amzn.to/2DmV1VW','	Organic Extra Virgin Olive Oil by Sky Organics 17oz- 100% Pure, Greek, Cold Pressed, Unfiltered, Non-GMO EVOO- For Cooking, Baking, Hair & Skin moisturizing- Award Winning Best USDA Organic Olive Oil','https://images-na.ssl-images-amazon.com/images/I/41oTpsV9hyL.jpg'];
 food['red pepper']= [38,3.6,0.3,'sour','http://amzn.to/2Do3IiV','McCormick Crushed Red Pepper, 13 oz','https://images-na.ssl-images-amazon.com/images/I/51UJ%2BXd31aL.jpg'];
-food['pepper']= [31,0,1,'sour','http://amzn.to/2FKtdZJ','Secret Aardvark Habanero Sauce, 8 fl oz','https://images-na.ssl-images-amazon.com/images/I/41VxDh0JYvL.jpg];
+food['pepper']= [31,0,1,'sour','http://amzn.to/2FKtdZJ','Secret Aardvark Habanero Sauce, 8 fl oz','https://images-na.ssl-images-amazon.com/images/I/41VxDh0JYvL.jpg'];
 food['dough']= [57,1.1,1.3,'everything','http://amzn.to/2Da2Nz2','Tiptree Sweet Tip Raspberry Preserve, 12 Ounce Jar','https://images-na.ssl-images-amazon.com/images/I/51sBl%2BOYPSL.jpg'];
 food['spinach']= [7,0.1,0.9,'vegetable','http://amzn.to/2CQf1jB','Montchevre, Goat Feta, 7 oz','https://images-na.ssl-images-amazon.com/images/I/31g9DP3-8iL.jpg'];
 food['banana']=[105,0.4,1.3,'sweet','http://amzn.to/2D8BFAC','Barnana Organic Chewy Banana Bites, Original, 3.5 Ounce','https://images-na.ssl-images-amazon.com/images/I/51dIm0xxt1L.jpg'];

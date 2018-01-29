@@ -794,6 +794,7 @@ function calculate(){
 	var proteinTotal = 0;
 	var accuracy = 0.65;
 	var backupPins = pins;
+	//var lastMeal = [];
 	//pins = dairyPins(pins);
 	//if (pins != false){
 	var notGross = true;
@@ -833,10 +834,26 @@ function calculate(){
 	if (notGross){
     if (calorieTotal >= targetCalories*accuracy && calorieTotal <= targetCalories && fatTotal >= targetFat*accuracy && fatTotal <= targetFat && proteinTotal >= targetProteint*accuracy && proteinTotal <= targetProteint && meals.includes(temp) == false) {
 		//
+		//console.log(meals.length);
+		if (meals.length > 1){
+			var count = 0;
+			
+			for (var h = 0; h < temp.length && count < 4; h++){
+				if(meals[meals.length-1].includes(temp[h]) == false){
+					count++;
+				}
+			}
+			var notDuplicate = (count > 3);
+		}else{
+			var notDuplicate = true;
+		}
+		//console.log(notDuplicate);
+		if (notDuplicate){
 		console.log(calorieTotal);
         meals.push(temp);
 		var nutritionList = [Math.ceil(calorieTotal),Math.ceil(fatTotal),Math.ceil(proteinTotal)];
 		nutrition.push(nutritionList);
+		}
     }
 	}
 }

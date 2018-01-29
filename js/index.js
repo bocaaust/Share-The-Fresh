@@ -835,7 +835,7 @@ function calculate(){
 		//
 		console.log(calorieTotal);
         meals.push(temp);
-		var nutritionList = [calorieTotal,fatTotal,proteinTotal];
+		var nutritionList = [Math.ceil(calorieTotal),Math.ceil(fatTotal),Math.ceil(proteinTotal)];
 		nutrition.push(nutritionList);
     }
 	}

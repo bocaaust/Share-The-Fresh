@@ -6,6 +6,7 @@ var yellow = ['bread', 'dough', 'cheese', 'pasta', 'rice', 'gouda', 'cheddar', '
 //food['apple'] = [(calories),(fat),(protein),(category),(affiliate url),(Title),(Image URL)]
 //food['apple'] = [15,30,20]
 var food = {};
+food['apple'] = [95,0,0,'http://amzn.to/2EkoJsw',"Nature's Path Organic Instant Hot Oatmeal, Apple Cinnamon, 14 Ounce (Pack of 6)",'https://images-na.ssl-images-amazon.com/images/I/512tJdRqVnL._SL160_.jpg'];
 food['bacon'] = [130,10,9,'everything','https://www.amazon.com/gp/product/B011Q34VWM/ref=as_li_tl?ie=UTF8&tag=sharethefresh-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B011Q34VWM&linkId=144ae5ce7d36b1e9ae51764865706b05','Organic Prairie, Mighty Beef Bar, Organic 100% Grass-Fed Beef, Paleo, Gluten Free, Uncured Bacon and Apple, 1 Ounce, Pack of 12','https://images-na.ssl-images-amazon.com/images/I/41U2vp72ohL.jpg','Organic'];
 food['roast beef'] = [130,8,14,'savory','http://amzn.to/2BUyICz','USDA Certified Organic Grass-Fed Boneless Prime Rib Roast','https://images-na.ssl-images-amazon.com/images/I/51ueiE7t%2BkL.jpg'];
 food['chicken breast'] = [120,2.6,23,'savory','http://amzn.to/2iUBzUI','H.F.s Outstanding All Natural Skinless Boneless Chicken Breast 40 Ounce','https://images-na.ssl-images-amazon.com/images/I/41%2BAsk49niL.jpg'];

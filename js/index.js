@@ -266,7 +266,7 @@ function secondButton(){
 	addTag(document.getElementById('imgurl').value)
 }
 function updateFields(){
-	document.getElementById('Parameters').style.visibility = "visible";
+	document.getElementById('Parameters').style.display = "inline-block";
 	var button = document.getElementById("mainButton");
 	var field = document.getElementById("imgurl");
 	field.placeholder = "Food Name";
@@ -277,12 +277,12 @@ function updateFields(){
 	button.removeChild(button.lastChild);
 	var tip = document.createTextNode("Add Food");
 	button.appendChild(tip);
-	
+	document.getElementById("editor").style.display = "inline-block";
 	var hint = document.getElementById("mainText");
 	hint.removeChild(hint.lastChild);
 	var hintText = document.createTextNode("Missing a Food? Enter it Below");
 	hint.appendChild(hintText);
-		document.getElementById('upload').style.visibility="hidden";
+		document.getElementById('upload').style.display="none";
 }
 
 function updateTopDestination(tags){
@@ -924,7 +924,7 @@ function calculate(){
 			}
 	}
 	}
-	document.getElementById('shelters').style.visibility="hidden";
+	document.getElementById('shelters').style.display="none";
 	
 		if (excess.includes(true)){
 	var excessTitle = document.createElement("H3");
@@ -949,9 +949,9 @@ function calculate(){
 		}
 	}
 	
-	document.getElementById('shelters').style.visibility="visible";
+	document.getElementById('shelters').style.display="inline-block";
 	}else{
-		document.getElementById('shelters').style.visibility="hidden";
+		document.getElementById('shelters').style.display="none";
 	}
 	
 	

@@ -34,7 +34,7 @@
 				<img src="img/FreshLogo1.png" alt="Share the Fresh" class="img-responsive" width="100%"  style="padding-top: 18px;" />
 				<h4>An AI Based Nutrition and Charity Project</h4>	
 				</div>
-					<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0">
+					<div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-0">
 					
 			<h2 class = "dailyTip box" id="dailyTip" style="padding: 8px;"></h2>
 				<h4 class="box" style="padding: 8px;"><a id="link" class="twitter-share-button"
@@ -49,22 +49,40 @@
 				
 			</div>
 			</div>
-			
-			<div class="row">
-			<div class="col-xs-12 col-xs-offset-0 text-center" style=" background-size:cover; padding: background-repeat:no-repeat; background-position: center center; background-attachment: fixed; 12px;opacity: 1.0; box-shadow: 4px 4px black; padding-top: 12px;">
-				<div class="col-xs-10 col-xs-offset-1" style="padding-bottom: 12vh; padding-left: 5vw;">
-				<div class="container-fluid" id="content" ></div>
-					<div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4"><p id ="mainText" class="shadow2">Enter a link to the photo of your groceries</p></div>
-					 <input type="text" id="imgurl"  placeholder="Image URL" style=" border-radius: 5px; width: 30vw;"/>
-    <button style="color:black; margin-top: 2px;" class="btn" id="mainButton">GET STARTED</button>
-					<div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4" id="upload" >
-					<p id ="mainText2" class="shadow2" style="margin-top: 8px;">Or Upload a Photo of Your Groceries</p>
+			<div class="row" style="border-bottom: 4px solid lightgreen">
+			<div class="col-xs-12 col-xs-offset-0 col-sm-7 col-sm-offset-0" style="padding: 0px;">
+			<img src="img/IMG_6842hashtag.jpg" width="100%" alt="family eating and making a salad" style="margin: 0px;" >
+				</div>
+				<div class="col-sm-5 col-xs-12">
+					<h3>Want to promote good nutrition while helping feed the homeless? Its easy, just follow these 5 simple steps.</h3>
+				<ol>
+					<li><h4>Take a photo of your groceries</h4></li>
+					<li><h4>Upload your photo to Share the Fresh</h4></li>
+					<li><h4>Edit your grocery list</h4></li>
+					<li><h4>Enter your daily nutritional goals, you can use our calculators if you're not sure</h4></li>
+					<li><h4>Check out your custom meal plans and also see what extra food you bought that you can donate. We'll even connect you with local food pantries and homeless shelters in your area</h4></li>
+					</ol>
+					<div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-0" id="upload" >
+					<p id ="mainText2" class="shadow2" style="margin-top: 8px;">Start your #freshlife and Upload a Photo of Your Groceries</p>
 					<div class="container-fluid">
 						<div class="form-group">
 						<input type="file" id="fileInput" onchange="handleFiles(this.files)">
 						</div>
 						</div>
 					</div>
+				</div>
+			</div>
+			<div class="row">
+			<div class="col-xs-12 col-xs-offset-0 text-center" style=" background-size:cover; padding: background-repeat:no-repeat; background-position: center center; background-attachment: fixed; 12px;opacity: 1.0; box-shadow: 4px 4px black; padding-top: 12px;">
+				<div class="col-xs-10 col-xs-offset-1" style="padding-bottom: 12vh; padding-left: 5vw;">
+				<div class="container-fluid" id="content" ></div>
+					<div style="display: none" id="editor">
+					<div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4"><p id ="mainText" class="shadow2">Enter a link to the photo of your groceries</p></div>
+					
+					 <input type="text" id="imgurl"  placeholder="Image URL" style=" border-radius: 5px; width: 30vw;"/>
+    <button style="color:black; margin-top: 2px;" class="btn" id="mainButton">GET STARTED</button>
+    </div>
+					
 					
 					<div class="container-fluid text-center" id="pinboard">
 					</div>
@@ -134,8 +152,8 @@
 		}
 		document.getElementById("mainButton").addEventListener("click",firstButton);
 		document.getElementById("submit").addEventListener("click",calculate);
-		document.getElementById('Parameters').style.visibility = "hidden";
-		document.getElementById('shelters').style.visibility = "hidden";
+		document.getElementById('Parameters').style.display = "none";
+		document.getElementById('shelters').style.display = "none";
 		var d = new Date();
 		var tipText = document.createTextNode("Tip of the Day: "+ nutritionTips[d.getDate()]);
 		document.getElementById('dailyTip').appendChild(tipText);

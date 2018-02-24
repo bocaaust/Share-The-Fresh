@@ -964,7 +964,7 @@ function calculate(){
 	excessTitle.appendChild(excessTitleText);
 	document.getElementById('third').appendChild(excessTitle);
 			var first = false;
-			var message = "https://twitter.com/intent/tweet?text=I%20just%20Shared%20The%20Fresh%20by%20donating%20";
+			var message = "https://twitter.com/intent/tweet?text=I%20%23ShareTheFresh%20by%20donating%20";
 	for(var r = 0; r< excess.length; r++){
 		if (excess[r]){
 			var excessItem = document.createElement("DIV");
@@ -988,9 +988,14 @@ function calculate(){
 			if (first && canComma){
 				message +=",%20";
 			}
+			if (canComma == false && first){
+				message+=",%20and%20";
+			}
 			first = true;
 			message+=pins[r];
-			
+			if(canComma==false){
+				message+="%20www.sharethefresh.life";
+			}
 			
 			excessItem.appendChild(excessItemText);
 			document.getElementById('third').appendChild(excessItem);
@@ -1001,7 +1006,8 @@ function calculate(){
 	var buttonRow = document.createElement("DIV");
 			buttonRow.className+="col-xs-12 text-center";
 			var shareButton = document.createElement("A");
-			shareButton.style.borderColor = "BLACK";
+			shareButton.className+="col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4 col-md-2 col-md-offset-5";
+			/*shareButton.style.borderColor = "BLACK";
 			shareButton.style.borderWidth = "2px";
 			shareButton.style.borderStyle = "solid";
 			shareButton.style.margin="8px";
@@ -1010,8 +1016,13 @@ function calculate(){
 			var shareButtonText2 =document.createTextNode("Share the Fresh");
 			var shareButtonText = document.createElement("H3");
 			shareButtonText.appendChild(shareButtonText2);
-			shareButton.appendChild(shareButtonText);
+			shareButton.appendChild(shareButtonText);*/
+			var shareIcon = document.createElement("IMG");
+			shareIcon.src="img/twitter.png";
+			shareIcon.alt="Post on Twitter";
+			shareIcon.style.width="100%";
 			shareButton.href=message;
+			shareButton.appendChild(shareIcon);
 			buttonRow.appendChild(shareButton);
 			document.getElementById('third').appendChild(buttonRow);
 	document.getElementById('shelters').style.display="inline-block";

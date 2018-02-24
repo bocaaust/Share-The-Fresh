@@ -904,25 +904,57 @@ function calculate(){
 			suggestionLink.appendChild(suggestionContainer);
 		document.getElementById('fourth').appendChild(suggestionLink);
 		}
+		var mealTable = document.createElement("TABLE");
+		var header = mealTable.createTHead();
+		var row = header.insertRow(0);
+		for(var x = 0;x<5;x++){
+			row.insertCell(x);
+		}
+		row.cells[0].innerHTML="<b>Your Meal Contains</b>";
+		row.cells[1].innerHTML="<b>Calories</b>";
+		row.cells[2].innerHTML="<b>Fat</b>";
+		row.cells[3].innerHTML="<b>Protein</b>";
 		//document.getElementById('fourth').appendChild(suggestionText);
+		var lastExcess = 0;
 	for(var u=0; u < meals.length; u++){
-		var mealString = (u+1)+". ";
+		var itemRow = mealTable.insertRow(u+1);
+		for(var x = 0;x<5;x++){
+			itemRow.insertCell(x);
+		}
+		//itemRow.cells[0].innerHTML=(u+1);
+		//var mealString = (u+1)+". ";
+		var mealString="";
+		var recipeString = meals[u][0];
 		mealString+=meals[u][0];
 		for (var c =1; c< meals[u].length; c++){
+			recipeString+="%20"+meals[u][c];
 			mealString+=", " + meals[u][c];
 		}
-		mealString += "   Calories: " +nutrition[u][0]+"\tFat: " +nutrition[u][1]+"\tProtein: "+nutrition[u][2];
-		var mealItem = document.createElement("H4");
-		var mealItemText = document.createTextNode(mealString);
-		mealItem.appendChild(mealItemText);
-		document.getElementById('secondary').appendChild(mealItem);
+		itemRow.cells[0].innerHTML=mealString;
+		itemRow.cells[1].innerHTML=nutrition[u][0];
+		itemRow.cells[2].innerHTML=nutrition[u][1];
+		itemRow.cells[3].innerHTML=nutrition[u][2];
+		//mealString += "   Calories: " +nutrition[u][0]+"\tFat: " +nutrition[u][1]+"\tProtein: "+nutrition[u][2]+"   ";
+		//var mealItem = document.createElement("H4");
+		//var mealItemText = document.createTextNode(mealString);
+		///mealItem.appendChild(mealItemText);
+		var mealRecipe = document.createElement("A");
+		var mealRecipeText = document.createTextNode("See Matching Recipes");
+		mealRecipe.appendChild(mealRecipeText);
+		mealRecipe.href="http://allrecipes.com/search/results/?wt="+recipeString+"&sort=re";
+		itemRow.cells[4].appendChild(mealRecipe);
+		//mealItem.appendChild(mealRecipe);
+		//document.getElementById('secondary').appendChild(mealItem);
 		for (var g = 0; g < pins.length; g++){
 				if (meals[u].includes(pins[g])){
 					//console.log(pins[g]);
 					excess[g] = false;
+				}else{
+					lastExcess = g;
 				}
 			}
 	}
+		document.getElementById('secondary').appendChild(mealTable);
 	}
 	document.getElementById('shelters').style.display="none";
 	
@@ -931,6 +963,8 @@ function calculate(){
 	var excessTitleText = document.createTextNode("Here is a list of excess items purchased you can donate")
 	excessTitle.appendChild(excessTitleText);
 	document.getElementById('third').appendChild(excessTitle);
+			var first = false;
+			var message = "https://twitter.com/intent/tweet?text=I%20just%20Shared%20The%20Fresh%20by%20donating%20";
 	for(var r = 0; r< excess.length; r++){
 		if (excess[r]){
 			var excessItem = document.createElement("DIV");
@@ -943,12 +977,43 @@ function calculate(){
 				excessItem.className+=" tagItemRed";
 			}
 			var excessItemText = document.createTextNode(pins[r]);
+			var canComma = false;
+			for(var l = r+1; l < excess.length;l++){
+				if (excess[r]){
+					canComma = true;
+					break;
+				}
+					
+			}
+			if (first && canComma){
+				message +=",%20";
+			}
+			first = true;
+			message+=pins[r];
+			
+			
 			excessItem.appendChild(excessItemText);
 			document.getElementById('third').appendChild(excessItem);
 			
+			
 		}
 	}
-	
+	var buttonRow = document.createElement("DIV");
+			buttonRow.className+="col-xs-12 text-center";
+			var shareButton = document.createElement("A");
+			shareButton.style.borderColor = "BLACK";
+			shareButton.style.borderWidth = "2px";
+			shareButton.style.borderStyle = "solid";
+			shareButton.style.margin="8px";
+			shareButton.style.padding="2px";
+			shareButton.className+="btn btn-large";
+			var shareButtonText2 =document.createTextNode("Share the Fresh");
+			var shareButtonText = document.createElement("H3");
+			shareButtonText.appendChild(shareButtonText2);
+			shareButton.appendChild(shareButtonText);
+			shareButton.href=message;
+			buttonRow.appendChild(shareButton);
+			document.getElementById('third').appendChild(buttonRow);
 	document.getElementById('shelters').style.display="inline-block";
 	}else{
 		document.getElementById('shelters').style.display="none";

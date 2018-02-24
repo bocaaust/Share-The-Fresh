@@ -154,6 +154,13 @@
 		function firstButton(){
 			run(document.getElementById('imgurl').value)
 		}
+		if (typeof(Storage) !== "undefined"){
+			if (typeof(localStorage.dailyCalories) !== "undefined" && typeof(localStorage.dailyProtein) !== "undefined" && typeof(localStorage.dailyFat) !== "undefined" ) {
+		document.getElementById('dailyCalories').value = localStorage.dailyCalories;
+		document.getElementById('dailyProtein').value = localStorage.dailyProtein;
+		document.getElementById('dailyFat').value = localStorage.dailyFat;
+		}
+		}
 		document.getElementById("mainButton").addEventListener("click",firstButton);
 		document.getElementById("submit").addEventListener("click",calculate);
 		document.getElementById('Parameters').style.display = "none";

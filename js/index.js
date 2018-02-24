@@ -263,7 +263,7 @@ function parseResponse(resp) {
   //return classes;
 }
 function secondButton(){
-	addTag(document.getElementById('imgurl').value)
+	addTag(document.getElementById('imgurl').value.toLowerCase())
 }
 function updateFields(){
 	document.getElementById('Parameters').style.display = "inline-block";
@@ -785,6 +785,11 @@ function calculate(){
 	var facts = collectNutrition(pins);
 	var meals = [];
 	var nutrition = [];
+	if (typeof(Storage) !== "undefined") {
+	localStorage.setItem("dailyCalories",document.getElementById('dailyCalories').value);
+	localStorage.setItem("dailyProtein",document.getElementById('dailyProtein').value);
+	localStorage.setItem("dailyFat",document.getElementById('dailyFat').value);
+	}
 	var targetCalories = document.getElementById('dailyCalories').value/3;
 	var targetProteint = document.getElementById('dailyProtein').value/3;
 	var targetFat = document.getElementById('dailyFat').value/3;

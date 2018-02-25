@@ -6883,4 +6883,19 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
+.image-upload > input
+{
+    display: none;
+}
+.camera {
+        width: 100px;
+       	height: 100px;
+        background-image: url("../img/cameraLight.png");
+		background-size: cover cover;
+		background-repeat: no-repeat;
+        display: inline-block;
+    }
+    .camera:hover {
+        background: url("../img/cameraDark.png") cover no-repeat;
+    }
 /*# sourceMappingURL=bootstrap.css.map */

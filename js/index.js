@@ -785,11 +785,11 @@ function calculate(){
 	var facts = collectNutrition(pins);
 	var meals = [];
 	var nutrition = [];
-	if (typeof(Storage) !== "undefined") {
+if (typeof(Storage) !== "undefined") {
 	localStorage.setItem("dailyCalories",document.getElementById('dailyCalories').value);
 	localStorage.setItem("dailyProtein",document.getElementById('dailyProtein').value);
 	localStorage.setItem("dailyFat",document.getElementById('dailyFat').value);
-	}
+}
 	var targetCalories = document.getElementById('dailyCalories').value/3;
 	var targetProteint = document.getElementById('dailyProtein').value/3;
 	var targetFat = document.getElementById('dailyFat').value/3;
@@ -868,10 +868,45 @@ function calculate(){
 	for(var l = 0; l < pins.length; l++){
 		excess[l] = true;
 	}
+	var hasStarch = false;
+		var hasDairy = false;
+		var hasFruit = false;
+		var hasVegetable = false;
+		for(var v=0; v < pins.length; v++){
+			if(food[pins[v]][0] > 85 || yellow.includes(pins[v])){
+				hasStarch = true;
+			}
+			if(food[pins[v]][3] == 'dairy'){
+				hasDairy = true;
+			}
+			if (fruits.includes(pins[v])){
+				hasFruit = true;
+			}
+			if (food[pins[v]][3] == 'vegetable'){
+				hasVegetable = true;
+			}
+		}
+		if (hasStarch == false){
+			var starchTip = document.createElement("P");
+		var starchText = document.createTextNode("For a balanced meal consider a starch");
+		starchTip.appendChild(starchText);
+		document.getElementById('secondary').appendChild(starchTip);
+		}
+	if (hasFruit== false){
+			var fruitTip = document.createElement("P");
+		var fruitText = document.createTextNode("For a balanced meal consider fruit");
+		fruitTip.appendChild(fruitText);
+		document.getElementById('secondary').appendChild(fruitTip);
+		}
+	if (hasVegetable== false){
+			var vegetableTip = document.createElement("P");
+		var vegetableText = document.createTextNode("For a balanced meal consider vegetables");
+		vegetableTip.appendChild(vegetableText);
+		document.getElementById('secondary').appendChild(vegetableTip);
+		}
 	var mealTitle = document.createElement("H3");
 	var mealTitleText = document.createTextNode("Here is a list of your potential meals");
 	
-
 	
 	mealTitle.appendChild(mealTitleText);
 	document.getElementById('secondary').appendChild(mealTitle);
@@ -881,6 +916,7 @@ function calculate(){
 		var mealItemText = document.createTextNode(mealString);
 		mealItem.appendChild(mealItemText);
 		document.getElementById('secondary').appendChild(mealItem);
+		
 	}else{
 		var random = Math.floor(Math.random()*meals.length)
 		tipFood = meals[random][Math.floor(Math.random()*meals[random].length)];

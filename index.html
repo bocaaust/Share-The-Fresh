@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114654498-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-114654498-1');
+</script>
+
+
     <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-   	<meta name="Description" content="An AI Based Nutrition and Charity Project">
+   	<meta name="Description" content="Take a photo of your groceries for recipes, healthy meal planning, and charity">
+   	<meta name="google-site-verification" content="XsyVh9IST5AVZbQPaUGNpDizMBT6rTQ7adgIcFnjKP4" />
+   	
     <title>Share The Fresh</title>
 
     <!-- Bootstrap -->
@@ -32,7 +45,7 @@
 				<h1 style="font-family: 'Damion', cursive; display: none;">Share the Fresh</h1>
 				<div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-2">
 				<img src="img/FreshLogo1.png" alt="Share the Fresh" class="img-responsive" width="100%"  style="padding-top: 18px;" />
-				<h4>An AI Based Nutrition and Charity Project</h4>	
+				<h4>Feel Good about Eating Right</h4>	
 				</div>
 					<div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-0">
 					
@@ -65,9 +78,15 @@
 					<div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-0" id="upload" >
 					<p id ="mainText2" class="shadow2" style="margin-top: 8px;">Start your #freshlife and Upload a Photo of Your Groceries</p>
 					<div class="container-fluid">
-						<div class="form-group">
-						<input type="file" id="fileInput" onchange="handleFiles(this.files)">
-						</div>
+					<div class="image-upload text-center">
+    					<label for="fileInput">
+							<img src="img/cameraDark.png" width="100px"/>
+							<h4>Upload or Take a Photo</h4>
+        					
+    					</label>
+
+    <input type="file" id="fileInput" onchange="handleFiles(this.files)" />
+</div>
 						</div>
 					</div>
 				</div>
@@ -154,13 +173,7 @@
 		function firstButton(){
 			run(document.getElementById('imgurl').value)
 		}
-		if (typeof(Storage) !== "undefined"){
-			if (typeof(localStorage.dailyCalories) !== "undefined" && typeof(localStorage.dailyProtein) !== "undefined" && typeof(localStorage.dailyFat) !== "undefined" ) {
-		document.getElementById('dailyCalories').value = localStorage.dailyCalories;
-		document.getElementById('dailyProtein').value = localStorage.dailyProtein;
-		document.getElementById('dailyFat').value = localStorage.dailyFat;
-		}
-		}
+		
 		document.getElementById("mainButton").addEventListener("click",firstButton);
 		document.getElementById("submit").addEventListener("click",calculate);
 		document.getElementById('Parameters').style.display = "none";
@@ -173,6 +186,13 @@
 			str+= nutritionTips[d.getDate()].replace(" ","%20");
 			str+= addition.replace(" ","%20");
 			document.getElementById('link').href = str;
+		if (typeof(Storage) !== "undefined"){
+			if (typeof(localStorage.dailyCalories) !== "undefined" && typeof(localStorage.dailyProtein) !== "undefined" && typeof(localStorage.dailyFat) !== "undefined" ) {
+		document.getElementById('dailyCalories').value = localStorage.dailyCalories;
+		document.getElementById('dailyProtein').value = localStorage.dailyProtein;
+		document.getElementById('dailyFat').value = localStorage.dailyFat;
+		}
+		}
 	  </script>
 	  </div>
   </body>

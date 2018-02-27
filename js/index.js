@@ -785,6 +785,19 @@ function calculate(){
 	var facts = collectNutrition(pins);
 	var meals = [];
 	var nutrition = [];
+	if (hasSent){
+	var foodsBought = "";
+	for (var x = 0; x < pins.length; x++){
+		foodsBought+=pins[x]+" ";
+	}
+		hasSent = false;
+		$.getJSON('//api.ipify.org?format=jsonp&callback=?', function(data) {
+  		emailjs.send("gmail","foods",{
+  ip: data["ip"], 
+ foods: foodsBought
+});
+});
+	}
 if (typeof(Storage) !== "undefined") {
 	localStorage.setItem("dailyCalories",document.getElementById('dailyCalories').value);
 	localStorage.setItem("dailyProtein",document.getElementById('dailyProtein').value);

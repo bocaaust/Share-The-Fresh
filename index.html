@@ -56,7 +56,7 @@
 					
 			<h2 class = "dailyTip box" id="dailyTip" style="padding: 8px;"></h2>
 				<h4 class="box" style="padding: 8px;"><a id="link" class="twitter-share-button"
-  href="https://twitter.com/intent/tweet?text=I%20just%20used%20ShareTheFresh%20to%20help%20me%20diet%20and%20save!" style="color: black;">
+  href="https://twitter.com/intent/tweet?text=I%20just%20used%20ShareTheFresh%20to%20help%20me%20diet%20and%20save!" style="color: black;" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;">
 				
 					Tell Your Friends and Share the Fresh</a></h4>
 						
@@ -75,8 +75,8 @@
 				</div>
 				<div class="col-sm-5 col-xs-12">
 				<div style="padding: 18px;padding-bottom: 0px;">
-				<a href="https://www.instagram.com/share_the_fresh/"><img src="img/instagram.png" width="50px"/></a>
-				<a href="https://twitter.com/sharethefresh"><img src="img/twitter.png" width="50px"/></a>
+				<a href="https://www.instagram.com/share_the_fresh/" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;"><img src="img/instagram.png" width="50px"/></a>
+				<a href="https://twitter.com/sharethefresh" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;"><img src="img/twitter.png" width="50px"/></a>
 					</div>
 					<h3>Want to promote good nutrition while helping feed the homeless? Its easy, just follow these 5 simple steps.</h3>
 				<ol style="font-size: 20px;">
@@ -104,8 +104,8 @@
 			</div>
 			<div class="row">
 			<div class="col-xs-12 col-xs-offset-0 text-center" style=" background-size:cover; padding: background-repeat:no-repeat; background-position: center center; background-attachment: fixed; 12px;opacity: 1.0; box-shadow: 4px 4px black; padding-top: 12px;">
-				<div class="col-xs-10 col-xs-offset-1" style="padding-bottom: 12vh; padding-left: 5vw;">
-				<div class="container-fluid" id="content" ></div>
+				<div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0" style=" padding-left: 5vw;">
+				<div class="container-fluid col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0" id="content" ></div>
 					<div style="display: none" id="editor">
 					<div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4"><p id ="mainText" class="shadow2">Enter a link to the photo of your groceries</p></div>
 					
@@ -116,6 +116,7 @@
 					
 					<div class="container-fluid text-center" id="pinboard">
 					</div>
+					<div class="container-fluid text-center" id="add"></div>
 					<div class="container-fluid" id="Parameters" style="margin-top: 12px;">
 					<div class="col-sm-4 col-xs-12">
 					<div class="form-group">
@@ -144,16 +145,17 @@
 						</div>
 						<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-xs-offset-0">
 							<div class="col-sm-4">
-								<a href="http://www.calculator.net/calorie-calculator.html">Calories?</a>
+								<a href="http://www.calculator.net/calorie-calculator.html" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;">Calories?</a>
 							</div>
 							<div class="col-sm-4">
-								<a href="http://www.calculator.net/protein-calculator.html">Protein?</a>
+								<a href="http://www.calculator.net/protein-calculator.html" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;">Protein?</a>
 							</div>
 							<div class="col-sm-4">
-								<a href="http://www.calculator.net/fat-intake-calculator.html">Fat?</a>
+								<a href="http://www.calculator.net/fat-intake-calculator.html" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;">Fat?</a>
 							</div>
 						</div>
 					</div>
+				
 					<div class="container-fluid" id="secondary" style="margin-top: 12px;"></div>
 					<div class="container-fluid" id="fourth"></div>
 					<div class="container-fluid" id="third"></div>
@@ -164,7 +166,7 @@
       <div class="col-xs-12 col-sm-10 col-xs-offset-0 col-sm-offset-1">
 		  <iframe width="100%" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=food%20pantry&key=AIzaSyA9EIWyEjrb2HzP1ljo077WmBRG8FhyhCc" height="500px" style="max-height: 50vh;border:0" allowfullscreen></iframe></div>
 					<div class="col-xs-12 col-sm-6 col-xs-offset-0 col-sm-offset-3">
-					<div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 52.499%; padding-top: 120px;"><a href="https://ifttt.com/applets/DUkaLdrX-if-uber-is-arriving-shortly-at-home-then-remind-me-to-share-the-fresh" data-iframely-url="//cdn.iframe.ly/NMF26ge"></a></div></div><script async src="js/embed.js" charset="utf-8"></script>
+					<div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 52.499%; padding-top: 120px;"><a href="https://ifttt.com/applets/DUkaLdrX-if-uber-is-arriving-shortly-at-home-then-remind-me-to-share-the-fresh" data-iframely-url="//cdn.iframe.ly/NMF26ge" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;"></a></div></div><script async src="js/embed.js" charset="utf-8"></script>
 						</div>
 
 					</div>

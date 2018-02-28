@@ -264,6 +264,13 @@ function parseResponse(resp) {
 }
 function secondButton(){
 	addTag(document.getElementById('imgurl').value.toLowerCase())
+	/*var pins = collectPins();
+	var i = pins.length;
+	while(i--){
+		if((document.getElementById('imgurl').value.toLowerCase() in food) == false){
+			addUnknown(document.getElementById('imgurl').value.toLowerCase());
+}
+	}*/
 }
 function updateFields(){
 	document.getElementById('Parameters').style.display = "inline-block";
@@ -383,8 +390,12 @@ function isUseless(name){
 }
 
 function addTag(name) {
+	
 	document.getElementById('imgurl').value = "";
-	if (name != "" && hasTag(name) && isUseless(name)){
+	if (name !== "" && hasTag(name) && isUseless(name)){
+		if((name in food) === false){
+			addUnknown(name);
+	}
 	var pinboard = document.getElementById('pinboard');
 	var item = document.createElement("DIV");
 	item.id=name;
@@ -402,6 +413,110 @@ function addTag(name) {
 	item.appendChild(button);
 	pinboard.appendChild(item);
 	}
+}
+
+function addUnknown(name){
+	var unBox = document.createElement("DIV");
+		unBox.id = name+"Box";
+		var unHeaderBox = document.createElement("DIV");
+		unHeaderBox.className+="col-xs-12";
+		var unHeader = document.createElement("H4");
+		unHeader.innerHTML=name+" is not in our database, please enter nutrition information below";
+		var add = document.getElementById("add");
+		unHeaderBox.appendChild(unHeader);
+		unBox.appendChild(unHeaderBox);
+		var box1 = document.createElement("DIV");
+		box1.className+="col-xs-12 col-sm-4";
+		var formGroup1 = document.createElement("DIV");
+		formGroup1.className+="form-group";
+		var label1 = document.createElement("LABEL");
+		label1.setAttribute("for",name+"Calories");
+		label1.innerHTML="Calories";
+		formGroup1.appendChild(label1);
+		var input1 = document.createElement("INPUT");
+		input1.setAttribute("type","text");
+		input1.setAttribute("placeholder","Calories");
+		input1.id=name+"Calories";
+		input1.style.width="100%";
+		formGroup1.appendChild(input1);
+		box1.appendChild(formGroup1);
+		unBox.appendChild(box1);
+		
+		
+		var box2 = document.createElement("DIV");
+		box2.className+="col-xs-12 col-sm-4";
+		var formGroup2 = document.createElement("DIV");
+		formGroup2.className+="form-group";
+		var label2 = document.createElement("LABEL");
+		label2.setAttribute("for",name+"Protein");
+		label2.innerHTML="Protein";
+		formGroup2.appendChild(label2);
+		var input2 = document.createElement("INPUT");
+		input2.setAttribute("type","text");
+		input2.setAttribute("placeholder","Protein");
+		input2.id=name+"Protein";
+		input2.style.width="100%";
+		formGroup2.appendChild(input2);
+		box2.appendChild(formGroup2);
+		unBox.appendChild(box2);
+		
+		var box3 = document.createElement("DIV");
+		box3.className+="col-xs-12 col-sm-4";
+		var formGroup3 = document.createElement("DIV");
+		formGroup3.className+="form-group";
+		var label3 = document.createElement("LABEL");
+		label3.setAttribute("for",name+"Fat");
+		label3.innerHTML="Fat";
+		formGroup3.appendChild(label3);
+		var input3 = document.createElement("INPUT");
+		input3.setAttribute("type","text");
+		input3.setAttribute("placeholder","Fat");
+		input3.id=name+"Fat";
+		input3.style.width="100%";
+		formGroup3.appendChild(input3);
+		box3.appendChild(formGroup3);
+		unBox.appendChild(box3);
+		
+		var buttonBox1 = document.createElement("DIV");
+		buttonBox1.className+="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-2";
+		var button1 = document.createElement("BUTTON");
+		button1.id = name+"Add";
+		button1.style.width = "100%";
+		button1.style.margin = "8px";
+		button1.className+="btn";
+		button1.innerHTML = "Add " + name;
+		buttonBox1.appendChild(button1);
+		unBox.appendChild(buttonBox1);
+		
+		var buttonBox2 = document.createElement("DIV");
+		buttonBox2.className+="col-xs-12 col-xs-offset-0 col-sm-4";
+		var button2 = document.createElement("BUTTON");
+		button2.id = name+"Remove";
+		button2.style.width = "100%";
+		button2.style.margin = "8px";
+		button2.className+="btn";
+		button2.innerHTML = "Remove " + name;
+		buttonBox2.appendChild(button2);
+		unBox.appendChild(buttonBox2);
+		add.appendChild(unBox);
+		document.getElementById(name+"Add").addEventListener("click",function () {addDatabase(name,document.getElementById(name+"Calories").value, document.getElementById(name+"Fat").value,document.getElementById(name+"Protein").value);removeBox(name+"Box");});
+		
+		document.getElementById(name+"Remove").addEventListener("click",function () {removeBox(name+"Box");remove(name);});
+}
+
+function removeBox(id){
+	var pinboard = document.getElementById('add');
+	var children = pinboard.children;
+	for (var i = 0; i < children.length; i++) {
+		if (children[i].id === id){
+			pinboard.removeChild(children[i]);
+			break;
+		}
+	}
+}
+
+function addDatabase(name,calories,fat,protein){
+	food[name] = [calories,fat,protein];
 }
 
 function addNode(url, prob){
@@ -728,6 +843,7 @@ function collectNutrition(pins) {
 		output.push(food[pins[i]]);
 			newPins.push(pins[i]);
 		}else{
+			//addUnknown(pins[i]);
 			remove(pins[i]);
 			pins.splice(i,1);
 		}
